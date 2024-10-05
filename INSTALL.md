@@ -8,7 +8,7 @@ docker build -t apispecgen:latest .
 docker run -it --name "apispecgen" "apispecgen:latest"
 ```
 
-If you have network problems that causes joern install to fail, add a proxy to your dockerfile. -->
+If you have network problems that causes tools install to fail, you may add a proxy to the dockerfile as follows: 
 ```
 ENV http_proxy=http://XX.XX.XX.XX:XXX
 ENV https_proxy=http://XX.XX.XX.XX:XXX

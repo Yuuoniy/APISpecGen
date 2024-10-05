@@ -14,7 +14,7 @@
 
 
 ## Setup && Configure
-Please refer to [INSTALL](./INSTALL) for installation and preparation.
+Please refer to [INSTALL](./INSTALL.md) for installation and preparation.
 
 
 In our evaluation, we used a 64-bit Ubuntu 22.04 system with 503GB of memory, powered by an Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz with 79 processors.
