@@ -49,11 +49,11 @@ WORKDIR /root/APISpecGen
 
 RUN ln -s /usr/bin/python3.10 /usr/bin/python
 RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python3.10 get-pip.py && pip install -r requirements.txt
-RUN mkdir tools
-WORKDIR /root/APISpecGen/tools
+RUN mkdir /root/tools
+WORKDIR /root/tools
 
-# ENV http_proxy=http://XX.XX.XX.XX:XXX
-# ENV https_proxy=http://XX.XX.XX.XX:XXX
+ENV http_proxy=http://XX.XX.XX.XX:XXX
+ENV https_proxy=http://XX.XX.XX.XX:XXX
 
 RUN apt-get install -y unzip
 RUN wget https://github.com/joernio/joern/releases/latest/download/joern-install.sh
@@ -62,16 +62,16 @@ RUN chmod +x ./joern-install.sh && ./joern-install.sh --version=v1.1.763
 
 RUN git clone https://github.com/tree-sitter/tree-sitter-c && cd tree-sitter-c && git checkout e348e8ec5efd3aac020020e4af53d2ff18f393a9
 
-WORKDIR /root/APISpecGen/tools
+WORKDIR /root/tools
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 ENV PATH="/root/.cargo/bin:${PATH}"
 # RUN cargo install weggli@0.2.2
 # Install the weggli with the log-var feature
 RUN git clone https://github.com/Yuuoniy/weggli.git
 RUN cd weggli && git checkout log-var
-WORKDIR /root/APISpecGen/tools/weggli
+WORKDIR /root/tools/weggli
 RUN cargo build --release
-RUN ln -s /root/APISpecGen/tools/weggli/target/release/weggli /usr/bin/weggli
+RUN ln -s /root/tools/weggli/target/release/weggli /usr/bin/weggli
 
 
 RUN mkdir /root/source && cd /root/source
