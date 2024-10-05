@@ -5,7 +5,7 @@ from config import WORKDIR
 import os
 
 
-ignored_ops_file = os.path(WORKDIR,'SpecGeneration/irrelvant_ops.txt')
+ignored_ops_file = os.path.join(WORKDIR,'SpecGeneration/irrelvant_ops.txt')
 
 class SpecPropogatePre:
     
