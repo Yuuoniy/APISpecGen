@@ -1,0 +1,2 @@
+main_api,sec_op,var_type,api_status,path_type
+nfc_get_device,nfc_put_device,retval,success,error

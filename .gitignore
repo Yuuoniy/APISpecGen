@@ -1,0 +1,5 @@
+*.dot
+*.c
+*.pyc
+.code_query_tmp_results/
+.old.git/
