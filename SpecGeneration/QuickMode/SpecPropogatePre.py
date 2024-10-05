@@ -66,20 +66,20 @@ class SpecPropogatePre:
     
     
     def __chain_retval_to_arg(self):
-        query = f'{self.seed_api} ($var) {{$var = $callee();NOT: $var=$func();}}'
+        query = f'{self.seed_api}($var) {{$var = $callee();NOT: $var=$func();}}'
         callees = CodeSearcher("linux").weggli_get_desired_filed(query,'callee')
         return callees
     
     
     
     def __chain_arg_to_retval(self):
-        query = f'{self.seed_api} () {{return $callee($var)}}'
+        query = f'_ {self.seed_api}() {{return $callee($var);}}'
         callees = CodeSearcher("linux").weggli_get_desired_filed(query,'callee')
         return callees
     
      
     def __chain_retval_to_retval(self):
-        query = f'{self.seed_api} () {{$var = $callee();NOT: $var=$func();return $var;}}'
+        query = f'_ {self.seed_api}() {{$var = $callee();NOT: $var=$func();return $var;}}'
         callees = CodeSearcher("linux").weggli_get_desired_filed(query,'callee')
         return callees
 
