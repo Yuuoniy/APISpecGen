@@ -2,7 +2,7 @@
 from APINameAnalysis import analyze_the_util_API_name
 from APIUsageAnalysis import calculate_usage_stats
 from APIDocAnalysis import API_doc_analysis
-
+import os
 import configparser
 
 
@@ -10,6 +10,7 @@ cp = configparser.ConfigParser(interpolation=configparser.ExtendedInterpolation(
 WORKDIR = "/root/APISpecGen"
 CONFIG_PATH = f'{WORKDIR}/config.cfg'
 cp.read(CONFIG_PATH)
+
 
 SPEC_DATA_ROOT = cp.get('GENERATOR','spec')
 
@@ -38,6 +39,6 @@ def pipeline(spec_file):
 
 
 if __name__ == "__main__":
-    spec_file = '/home/linmq/APISpecGen/NewGeneratedData/FilteredSpecArgAndUsage/merged_apis.json'
-    # spec_file = f'{WORKDIR}/SpecGeneration/Data/oldData/All_generated_specs.json'
+    spec_file = 'SpecGeneration/Data/ReferenceData/Merged_API_Specs_Paired.json'
+    spec_file = os.path.join(WORKDIR,  spec_file)
     pipeline(spec_file)

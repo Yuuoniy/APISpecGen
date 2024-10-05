@@ -69,6 +69,6 @@ class CodeSearcher:
         try:
             return list(set(self.__weggli_get_found_func(query)))
         except Exception as e:
-            print(e)
+            # print(e)
             return []
     

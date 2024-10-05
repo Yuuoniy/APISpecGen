@@ -1,0 +1,542 @@
+[
+    {
+        "API": "create_dgram_bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "BIO_new->create_dgram_bio",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "CMS_EnvelopedData_decrypt",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "BIO_new->CMS_EnvelopedData_decrypt",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "CMS_SignedData_verify",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "BIO_new->CMS_SignedData_verify",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "BIO_new_fd",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_fd",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "BIO_new_accept",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_accept",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "BIO_new_socket",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_socket",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "bio_from_file",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "BIO_new->bio_from_file",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "ossl_cms_EncryptedContent_init_bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 1,
+        "API_path": "BIO_new->ossl_cms_EncryptedContent_init_bio",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "ossl_bio_new_from_core_bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 14,
+        "depth": 1,
+        "API_path": "BIO_new->ossl_bio_new_from_core_bio",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "BIO_new_dgram_sctp",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_dgram_sctp",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "http_server_init",
+        "SecOp": "BIO_free_all",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "BIO_new->http_server_init",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "cms_get_text_bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "BIO_new->cms_get_text_bio",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "CMS_verify",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 2,
+        "API_path": "BIO_new->cms_get_text_bio->CMS_verify",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "BIO_new_ssl",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_ssl",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "BIO_new_ssl_connect",
+        "SecOp": "BIO_free_all",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_ssl->BIO_new_ssl_connect",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "BIO_new_dgram",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_dgram",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "BIO_new_connect",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_connect",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "http_new_bio",
+        "SecOp": "BIO_free_all",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_connect->http_new_bio",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "ASN1_item_i2d_mem_bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 1,
+        "API_path": "BIO_new->ASN1_item_i2d_mem_bio",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "OSSL_CMP_MSG_http_perform",
+        "SecOp": "OSSL_CMP_MSG_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->ASN1_item_i2d_mem_bio->OSSL_CMP_MSG_http_perform",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "BIO_new_mem_buf",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 29,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_mem_buf",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "glue2bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_mem_buf->glue2bio",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "BIO_new_fp",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 23,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_fp",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "dup_bio_in",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_fp->dup_bio_in",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "dup_bio_out",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_fp->dup_bio_out",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "dup_bio_err",
+        "SecOp": "BIO_free_all",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_fp->dup_bio_err",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "bio_open_owner",
+        "SecOp": "BIO_free_all",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_fp->bio_open_owner",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "ossl_cms_content_bio",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "BIO_new->ossl_cms_content_bio",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "CMS_dataInit",
+        "SecOp": "BIO_free_all",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "CMS_EncryptedData_decrypt",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_EncryptedData_decrypt",
+        "var_path": "retval->retval->retval->arg"
+    },
+    {
+        "API": "CMS_uncompress",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 3,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_uncompress",
+        "var_path": "retval->retval->retval->arg"
+    },
+    {
+        "API": "CMS_digest_verify",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_digest_verify",
+        "var_path": "retval->retval->retval->arg"
+    },
+    {
+        "API": "CMS_decrypt",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 3,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_decrypt",
+        "var_path": "retval->retval->retval->arg"
+    },
+    {
+        "API": "CMS_final",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 3,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final",
+        "var_path": "retval->retval->retval->arg"
+    },
+    {
+        "API": "CMS_compress",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 4,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_compress",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "CMS_digest_create_ex",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 4,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_digest_create_ex",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "CMS_sign_ex",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 4,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_sign_ex",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "CMS_sign",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 5,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_sign_ex->CMS_sign",
+        "var_path": "retval->retval->retval->arg->retval->retval"
+    },
+    {
+        "API": "CMS_encrypt_ex",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 4,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_encrypt_ex",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "CMS_encrypt",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 5,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_encrypt_ex->CMS_encrypt",
+        "var_path": "retval->retval->retval->arg->retval->retval"
+    },
+    {
+        "API": "CMS_data_create_ex",
+        "SecOp": "CMS_ContentInfo_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 4,
+        "API_path": "BIO_new->ossl_cms_content_bio->CMS_dataInit->CMS_final->CMS_data_create_ex",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "BIO_new_file",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 89,
+        "depth": 1,
+        "API_path": "BIO_new->BIO_new_file",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "getfile",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 7,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->getfile",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "PKCS12_load",
+        "SecOp": "PKCS12_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->PKCS12_load",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "load_certs_pem",
+        "SecOp": "OSSL_STACK_OF_X509_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->load_certs_pem",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "get_next_file",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->get_next_file",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "load_csr_der",
+        "SecOp": "X509_REQ_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->load_csr_der",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "process_include",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->process_include",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "read_p12",
+        "SecOp": "PKCS12_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->read_p12",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "load_index",
+        "SecOp": "free_index",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->load_index",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "OSSL_CMP_MSG_read",
+        "SecOp": "OSSL_CMP_MSG_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->OSSL_CMP_MSG_read",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "CONF_load",
+        "SecOp": "CONF_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->CONF_load",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "load_serial",
+        "SecOp": "BN_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->load_serial",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "x509_load_serial",
+        "SecOp": "ASN1_INTEGER_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 3,
+        "API_path": "BIO_new->BIO_new_file->load_serial->x509_load_serial",
+        "var_path": "retval->retval->arg->arg"
+    },
+    {
+        "API": "app_get_pass",
+        "SecOp": "BIO_free",
+        "hasUsage": false,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->app_get_pass",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "load_key",
+        "SecOp": "EVP_PKEY_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->load_key",
+        "var_path": "retval->retval->arg"
+    },
+    {
+        "API": "load_key_pwd",
+        "SecOp": "EVP_PKEY_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 3,
+        "API_path": "BIO_new->BIO_new_file->load_key->load_key_pwd",
+        "var_path": "retval->retval->arg->arg"
+    },
+    {
+        "API": "bio_open_default_",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "BIO_new->BIO_new_file->bio_open_default_",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "bio_open_default",
+        "SecOp": "BIO_free",
+        "hasUsage": true,
+        "usageCount": 21,
+        "depth": 3,
+        "API_path": "BIO_new->BIO_new_file->bio_open_default_->bio_open_default",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "load_sess_id",
+        "SecOp": "SSL_SESSION_free",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 4,
+        "API_path": "BIO_new->BIO_new_file->bio_open_default_->bio_open_default->load_sess_id",
+        "var_path": "retval->retval->retval->retval->arg"
+    }
+]

@@ -51,4 +51,4 @@ def analyze_the_util_API_name(subwords,input_file):
     total_filtered_count += filtered_count
 
     total_ratio = (total_filtered_count / total_apis_count) * 100 if total_apis_count > 0 else 0
-    print(f"[API Name Analysis]:{total_ratio:.2f}% APIs do not contain the informative subwords (verbs) ({total_filtered_count} out of {total_apis_count}).")
+    print(f"[API Name Analysis]: {total_ratio:.2f}% APIs do not contain the informative subwords (verbs).")

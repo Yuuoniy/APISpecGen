@@ -1,0 +1,596 @@
+[
+    {
+        "API": "usb_get_phy",
+        "SecOp": "usb_put_phy",
+        "hasUsage": true,
+        "usageCount": 8,
+        "depth": 1,
+        "API_path": "try_module_get->usb_get_phy",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "cxl_calls_get",
+        "SecOp": "cxl_calls_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->cxl_calls_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nft_expr_type_get",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->nft_expr_type_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "get_fs_type",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "try_module_get->__get_fs_type->get_fs_type",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "find_ife_oplist",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "try_module_get->find_ife_oplist",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "xt_find_table_lock",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 9,
+        "depth": 1,
+        "API_path": "try_module_get->xt_find_table_lock",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "find_quota_format",
+        "SecOp": "put_quota_format",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->find_quota_format",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "phonet_proto_get",
+        "SecOp": "phonet_proto_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->phonet_proto_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "tcf_em_lookup",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->tcf_em_lookup",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "xfrm_get_translator",
+        "SecOp": "xfrm_put_translator",
+        "hasUsage": true,
+        "usageCount": 6,
+        "depth": 1,
+        "API_path": "try_module_get->xfrm_get_translator",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "get_mtd_chip_driver",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->get_mtd_chip_driver",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "dm_get_path_selector",
+        "SecOp": "dm_put_path_selector",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "try_module_get->get_path_selector->dm_get_path_selector",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "trace_get_event_file",
+        "SecOp": "trace_put_event_file",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 2,
+        "API_path": "try_module_get->trace_event_try_get_ref->trace_get_event_file",
+        "var_path": "arg->arg->retval"
+    },
+    {
+        "API": "iscsit_get_transport",
+        "SecOp": "iscsit_put_transport",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->iscsit_get_transport",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "i2c_get_adapter",
+        "SecOp": "i2c_put_adapter",
+        "hasUsage": true,
+        "usageCount": 20,
+        "depth": 1,
+        "API_path": "try_module_get->i2c_get_adapter",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "scsi_disk_get",
+        "SecOp": "scsi_disk_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "try_module_get->scsi_device_get->scsi_disk_get",
+        "var_path": "arg->arg->retval"
+    },
+    {
+        "API": "__get_fs_type",
+        "SecOp": "put_filesystem",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->__get_fs_type",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "xt_request_find_match",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 2,
+        "API_path": "try_module_get->xt_find_match->xt_request_find_match",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "nft_flowtable_type_get",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->nft_flowtable_type_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "cpufreq_parse_governor",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "try_module_get->get_governor->cpufreq_parse_governor",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "xt_request_find_target",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 11,
+        "depth": 2,
+        "API_path": "try_module_get->xt_find_target->xt_request_find_target",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "xt_find_match",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->xt_find_match",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "get_policy",
+        "SecOp": "put_policy",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "try_module_get->__get_policy_once->get_policy_once->get_policy",
+        "var_path": "arg->retval->retval->retval"
+    },
+    {
+        "API": "can_get_proto",
+        "SecOp": "can_put_proto",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->can_get_proto",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "pmf_find_function",
+        "SecOp": "pmf_put_function",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "try_module_get->pmf_get_function->pmf_find_function",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "get_xt_match",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "try_module_get->xt_find_match->xt_request_find_match->get_xt_match",
+        "var_path": "arg->retval->retval->retval"
+    },
+    {
+        "API": "elevator_get_default",
+        "SecOp": "elevator_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "try_module_get->elevator_get->elevator_get_default",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "scsi_tape_get",
+        "SecOp": "scsi_tape_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "try_module_get->scsi_device_get->scsi_tape_get",
+        "var_path": "arg->arg->retval"
+    },
+    {
+        "API": "of_get_i2c_adapter_by_node",
+        "SecOp": "i2c_put_adapter",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->of_get_i2c_adapter_by_node",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "lookup_rules_ops",
+        "SecOp": "rules_ops_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->lookup_rules_ops",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "alg_get_type",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->alg_get_type",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "get_type",
+        "SecOp": "put_type",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "try_module_get->_get_dirty_log_type->get_type",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "dm_get_target_type",
+        "SecOp": "dm_put_target_type",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "try_module_get->get_target_type->dm_get_target_type",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "core_get_backend",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->core_get_backend",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nft_obj_type_get",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->nft_obj_type_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "usb_role_switch_get",
+        "SecOp": "usb_role_switch_put",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 1,
+        "API_path": "try_module_get->usb_role_switch_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "ip_vs_scheduler_get",
+        "SecOp": "ip_vs_scheduler_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "try_module_get->ip_vs_sched_getbyname->ip_vs_scheduler_get",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "fwnode_typec_switch_get",
+        "SecOp": "typec_switch_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->fwnode_typec_switch_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "of_phy_get",
+        "SecOp": "of_phy_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "try_module_get->of_phy_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "sun4i_hdmi_get_ddc",
+        "SecOp": "i2c_put_adapter",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "try_module_get->of_get_i2c_adapter_by_node->sun4i_hdmi_get_ddc",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "elevator_get_by_features",
+        "SecOp": "elevator_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->elevator_get_by_features",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nfs_alloc_client",
+        "SecOp": "nfs_free_client",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->nfs_alloc_client",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "__ip_vs_pe_getbyname",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->__ip_vs_pe_getbyname",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "elevator_get",
+        "SecOp": "elevator_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->elevator_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "scsi_cd_get",
+        "SecOp": "scsi_cd_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "try_module_get->scsi_device_get->scsi_cd_get",
+        "var_path": "arg->arg->retval"
+    },
+    {
+        "API": "lookup_ts_algo",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->lookup_ts_algo",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "find_pnfs_driver",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->find_pnfs_driver",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "__nvmem_device_get",
+        "SecOp": "__nvmem_device_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "try_module_get->__nvmem_device_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "qdisc_lookup_ops",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->qdisc_lookup_ops",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "dfl_fpga_port_ops_get",
+        "SecOp": "dfl_fpga_port_ops_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->dfl_fpga_port_ops_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "fwnode_typec_mux_get",
+        "SecOp": "typec_mux_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->fwnode_typec_mux_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "rpcauth_get_authops",
+        "SecOp": "rpcauth_put_authops",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 1,
+        "API_path": "try_module_get->rpcauth_get_authops",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "team_mode_get",
+        "SecOp": "team_mode_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->team_mode_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nf_sockopt_find",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "try_module_get->nf_sockopt_find",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "fwnode_usb_role_switch_get",
+        "SecOp": "usb_role_switch_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->fwnode_usb_role_switch_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "iio_get_sw_device_type",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->iio_get_sw_device_type",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "omapdss_find_output_from_display",
+        "SecOp": "omap_dss_put_device",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 2,
+        "API_path": "try_module_get->omap_dss_get_device->omapdss_find_output_from_display",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "xt_request_find_table_lock",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 6,
+        "depth": 2,
+        "API_path": "try_module_get->xt_find_table_lock->xt_request_find_table_lock",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "stm_find_device",
+        "SecOp": "stm_put_device",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->stm_find_device",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "of_led_get",
+        "SecOp": "led_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->of_led_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "typec_mux_get",
+        "SecOp": "typec_mux_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "try_module_get->fwnode_typec_mux_get->typec_mux_get",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "get_governor",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->get_governor",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nf_conntrack_helper_try_module_get",
+        "SecOp": "nf_conntrack_helper_put",
+        "hasUsage": true,
+        "usageCount": 0,
+        "depth": 1,
+        "API_path": "try_module_get->nf_conntrack_helper_try_module_get",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "iio_get_sw_trigger_type",
+        "SecOp": "module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "try_module_get->iio_get_sw_trigger_type",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nvmem_cell_get",
+        "SecOp": "nvmem_cell_put",
+        "hasUsage": true,
+        "usageCount": 13,
+        "depth": 3,
+        "API_path": "try_module_get->__nvmem_device_get->of_nvmem_cell_get->nvmem_cell_get",
+        "var_path": "arg->retval->retval->retval"
+    },
+    {
+        "API": "spufs_calls_get",
+        "SecOp": "spufs_calls_put",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 1,
+        "API_path": "try_module_get->spufs_calls_get",
+        "var_path": "arg->retval"
+    }
+]

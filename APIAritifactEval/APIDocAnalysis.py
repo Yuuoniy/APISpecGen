@@ -18,7 +18,6 @@ def check_api_in_doc(api_name, sec_op, api_docs):
 def process_doc_info(spec_data, api_docs):
     updated_data = []
     for entry in spec_data:
-        # if entry['hasUsage'] and entry['usageCount'] >= 1:
         is_doc_empty, found_sec_op = check_api_in_doc(entry['API'], entry['SecOp'], api_docs)
         entry['IsDocEmpty'] = is_doc_empty
         entry['SecOpInDoc'] = found_sec_op
@@ -27,7 +26,6 @@ def process_doc_info(spec_data, api_docs):
 
 def calculate_statistics(spec_data):
     total_entries = len(spec_data)
-    # total_entries = len([entry for entry in spec_data if entry['hasUsage'] and entry['usageCount'] >= 1])
     sec_op_not_in_doc = [entry for entry in spec_data if not entry.get('SecOpInDoc', True)]
     non_empty_docs = [entry for entry in spec_data if not entry.get('IsDocEmpty', True)]
     sec_op_not_in_non_empty_doc = [entry for entry in spec_data if not entry.get('SecOpInDoc', True) and not entry.get('IsDocEmpty', False)]
@@ -42,8 +40,8 @@ def calculate_statistics(spec_data):
     sec_op_not_in_doc_ratio = sec_op_not_in_doc_count / total_entries
     sec_op_not_in_non_empty_doc_ratio = sec_op_not_in_non_empty_doc_count / len(non_empty_docs) if non_empty_docs else 0
 
-    print(f"[API Doc Analysis]: {sec_op_not_in_doc_ratio:.2%} of Specs not mentioned in Doc For All APIs {sec_op_not_in_doc_count}/{total_entries}")
-    print(f"[API Doc Analysis]: {sec_op_not_in_non_empty_doc_ratio:.2%} of Specs not mentioned in Doc for those API having docs: {sec_op_not_in_non_empty_doc_count}/{len(non_empty_docs)}")
+    print(f"[API Doc Analysis]: {sec_op_not_in_doc_ratio:.2%} of specifcations are not mentioned in documents For all APIs pairs.")
+    print(f"[API Doc Analysis]: {sec_op_not_in_non_empty_doc_ratio:.2%} of specifcations are not mentioned in documents for those API having docs")
 
 
 def API_doc_analysis(usage_file, doc_file):
