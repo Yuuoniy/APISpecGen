@@ -20,9 +20,9 @@ Please refer to [INSTALL](./INSTALL.md) for installation and preparation.
 In our evaluation, we used a 64-bit Ubuntu 22.04 system with 503GB of memory, powered by an Intel(R) Xeon(R) Gold 5218R CPU @ 2.10GHz with 79 processors.
 APISpecGen works on standard machines and does not require significant memory overhead.
 
-We recommend using multithreading to speed up the evaluation process. By default, 48 threads are used, but without multithreading, the process may take significantly longer. You can adjust the num_threads setting in the config.cfg file according to your needs. 
+We recommend using multithreading to speed up the evaluation process. By default, 48 threads are used, but without multithreading, the process may take significantly longer. You can adjust the `num_threads` setting in the `config.cfg` file according to your needs. 
 
-The execution time for the evaluation depends on the performance of the machine used. To avoid unexpectedly long evaluation times, you can limit the max_depth (default is 10) in the script/1.specification_extraction.sh to a smaller value (such as 1 or 2) during the specification generation phase. This will allow you to test the evaluation and estimate the time required.
+The execution time for the evaluation depends on the performance of the machine used. To avoid unexpectedly long evaluation times, you can limit the `max_depth` (default is 10) in the `script/1.specification_extraction.sh` to a smaller value (such as 1 or 2) during the specification generation phase. This will allow you to test the evaluation and estimate the time required.
 
 
 ## Evaluation
@@ -110,8 +110,8 @@ Below, we provide the execution time in our evaluations for reference. The data 
 ### 2. Bug Detection (Section VII.B).
 
 #### 2.0 Minimal Running For Bug Detection
-- [Run] `./script/0.1.quick_bug_detection_for_test.sh` 
 - **[Intro]** Perform quick test for bug detection using one generated specification [obtained from specifcation generation for working example](#10-minimal-running). Use the specifcation generated from step (nfc_get_device, nfc_put_device,retval) to detect bugs. 
+- **[Run]** `./script/0.1.quick_bug_detection_for_test.sh` 
 - **[Results]** 
 The script prints out the detected potential bugs. This includes the buggy function `nfc_genl_vendor_cmd` displayed in the paper.
 The output example: 
@@ -131,9 +131,9 @@ sys     0m8.942s
 
 - **[Run]** `./script/2.bug_detection.sh`
 
-- **[Results]** Using the specifcations, APISpecGen detects hundreads of new bugs in the Linux kernel. During the detection, the bug reports will be continuously logged into the file `{WORKDIR}/BugDetection/bug_report.csv`. 
+- **[Results]** Using the specifcations, APISpecGen detects hundreads of new bugs in the Linux kernel. During the detection, the bug reports will be continuously logged into the file `BugDetection/data/bug_report.csv`. 
 
-- The bug report example, which include the buggy func and the corresponding specifcations (main_api,sec_op,var_type).
+- The bug report example, which include the buggy func and the corresponding specifcations (`main_api,sec_op,var_type`).
 ```csv
 repo_name,buggy_func,main_api,sec_op,var_type,var,scope,violated_path_num
 kernel,nfc_genl_vendor_cmd,nfc_get_device,nfc_put_device,retval,dev,Local,6
@@ -141,9 +141,9 @@ kernel,nfc_genl_vendor_cmd,nfc_get_device,nfc_put_device,retval,dev,Local,6
 It often requires to validate whether the reported bugs are true. 
 In the aritifacts, we provide a list of true bugs we confirmed in the Linux kernel v5.16 for automatically confirm the main claim that the generated specifications can detect numerous new bugs. After the detection, you may run `python script/ResultsCheck/check_bug_detect.py` to check that the true bugs are detected by the APISpecGen. 
 
-If you want to manually confirm the bug reports, you may use the script (`BugDetection/report_ranker.py`) to rank the reports, with reports are the front are more likey to be true bugs.
+If you want to manually confirm the bug reports, you may use the script (`BugDetection/report_ranker.py`) to rank the reports, with reports are the front are more likey to be true bugs. (Run `python BugDetection/report_ranker.py --file BugDetection/data/bug_report.csv`)
 
-The generated specifications can be used to detect bugs across different versions of the program. APISpecGen has detected new bugs in the latest version of the Linux kernel, and we are currently working on addressing these newly detected bugs. The bug reports from the latest version differ from those detected in v5.16. But this does not affect our main claim.
+Besides, the generated specifications can be used to detect bugs across different versions of the program. APISpecGen has detected new bugs in the latest version of the Linux kernel, and we are currently working on addressing these newly detected bugs. The bug reports from the latest version differ from those detected in v5.16. But this does not affect our main claim.
 
 
 ### 3. Utilizebility of API Aritifacts (Section VII.D).
