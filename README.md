@@ -1,9 +1,9 @@
 ## Intro
-APISpecGen is a tool that can use given specification seeds to generate new API specifications, and using these generated specifications to detect new bugs. 
+APISpecGen is a tool that can use given specification seeds to generate new API specifications, and uses these generated specifications to detect new bugs. 
 
 
 ## Install
-Please refer to [INSTALL](./INSTALL)
+Please refer to [INSTALL](./INSTALL.md)
 
 
 ## Aritifact Evalution
