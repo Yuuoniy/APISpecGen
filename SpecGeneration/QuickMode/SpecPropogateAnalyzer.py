@@ -15,12 +15,13 @@ class SpecPropogateAnalyzer:
         self.keywords = ['get', 'find', 'alloc', 'lookup'] 
         self.num_threads = SPEC_NUM_THREADS 
         self.explore_API = []
+        self.explore_specs = []
         
 
     
     def bidirectional_propogation_analysis(self, seedSpec):
         generated_specs = []
-        generated_specs = self.iterative_propogation_analysis_for_successors(seedSpec.API,seedSpec.secOp, seedSpec.critical_var,1)
+        generated_specs = self.iterative_propogation_analysis_for_successors(seedSpec,1)
         generated_specs += self.iterative_propogation_analysis_for_predecessor(seedSpec,1)
         return generated_specs
     
@@ -59,11 +60,11 @@ class SpecPropogateAnalyzer:
         
         
 
-        Generated_spec_for_pre = APISpec(pre_API, sec_op, inferred_critical_var)               
-        # self.explore_API.append(pre_API)
+        Generated_spec_for_pre = APISpec(pre_API, sec_op, inferred_critical_var)     
+        # self.explore_specs.append((pre_API, inferred_critical_var))
         
         # successors analysis for the predecessor
-        generated_specs += self.iterative_propogation_analysis_for_successors(pre_API, sec_op, inferred_critical_var, current_depth + 1, current_API_path, current_var_path)
+        generated_specs += self.iterative_propogation_analysis_for_successors(Generated_spec_for_pre, current_depth + 1, current_API_path, current_var_path)
         
         # iterative predecessor analysis
         generated_specs += self.iterative_propogation_analysis_for_predecessor(Generated_spec_for_pre,current_depth + 1,current_API_path,current_var_path)
@@ -72,19 +73,20 @@ class SpecPropogateAnalyzer:
         
     
     
-    def iterative_propogation_analysis_for_successors(self, seed_api, seed_secop, critical_var, current_depth, API_propa_path=None, critical_var_propa_path=None):
+    def iterative_propogation_analysis_for_successors(self, seedSpec, current_depth, API_propa_path=None, critical_var_propa_path=None):
         if current_depth > self.max_depth:
             return []
 
-        if seed_api in self.explore_API:
+
+        if (seedSpec.API, seedSpec.critical_var) in self.explore_specs:
             return []
         
-        self.explore_API.append(seed_api)
+        self.explore_specs.append((seedSpec.API, seedSpec.critical_var))
         
-        API_propa_path = API_propa_path or [seed_api]
-        critical_var_propa_path = critical_var_propa_path or [critical_var]
+        API_propa_path = API_propa_path or [seedSpec.API]
+        critical_var_propa_path = critical_var_propa_path or [seedSpec.critical_var]
         
-        succs_via_retval, succs_via_arg = self.propogation_analysis_for_successors(seed_api, critical_var)
+        succs_via_retval, succs_via_arg = self.propogation_analysis_for_successors(seedSpec.API, seedSpec.critical_var)
         propogation_types = ['retval', 'arg']
         
         generated_specs = []
@@ -98,11 +100,11 @@ class SpecPropogateAnalyzer:
                 for inferred_API in tqdm(inferred_apis):
                     if inferred_API in ['main'] or 'devm' in inferred_API:
                         continue
-                    if inferred_API in self.explore_API:
+                    if (inferred_API, direction) in self.explore_specs:
                         continue
-                    # self.explore_API.append(inferred_API)
+
                     
-                    futures.append(executor.submit(self.analyze_wrapper, inferred_API, seed_secop, direction, current_depth, API_propa_path, critical_var_propa_path))
+                    futures.append(executor.submit(self.analyze_wrapper, inferred_API, seedSpec.secOp, direction, current_depth, API_propa_path, critical_var_propa_path))
 
             for future in concurrent.futures.as_completed(futures):
                 generated_specs.extend(future.result())
@@ -131,7 +133,8 @@ class SpecPropogateAnalyzer:
             'var_path': '->'.join(current_var_path)
             }]
             
-            generated_specs += self.iterative_propogation_analysis_for_successors(wrapper, seed_secop, direction, current_depth + 1, current_API_path, current_var_path)
+            generated_spec = APISpec(wrapper, seed_secop, direction)
+            generated_specs += self.iterative_propogation_analysis_for_successors(generated_spec, current_depth + 1, current_API_path, current_var_path)
         else:
             generated_specs = []
             

@@ -42,7 +42,7 @@ class IsErrSpecPropogate:
         for succ in succs:
             if succ not in self.explored_apis:
                 self.explored_apis.append(succ)
-                self.analyze_spec(func, succ, current_depth, API_path, var_path)
+                self.analyze_spec(func, succ, current_depth + 1, API_path + [succ], var_path + ['retval'])
                 self.iterative_propogation_analysis(succ, current_depth + 1, API_path + [succ], var_path + ['retval'])                
                 
     
@@ -51,7 +51,6 @@ class IsErrSpecPropogate:
         spec = {
             'API': succ,
             'SecOp': 'IS_ERR', 
-            'hasUsage': has_usage,
             'usageCount': usage_count,
             'depth': current_depth,
             'API_path': '->'.join(API_path),
