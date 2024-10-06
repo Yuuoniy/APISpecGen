@@ -95,6 +95,7 @@ Total Specs: 8791
 
 We updated some code logic in the artifacts, which results in slight differences in the data compared to what is presented in the paper. And the results support the main claim. 
 
+- **[Execution time]** 
 Below, we provide the execution time in our evaluations for reference. The data is saved to `SpecGeneration/Data/ReferenceData` 
 | SeedAPI           | Depth | Time                                      |
 | ----------------- | ----- | ----------------------------------------- |
@@ -147,7 +148,12 @@ If you want to manually confirm the bug reports, you may use the script (`BugDet
 
 Besides, the generated specifications can be used to detect bugs across different versions of the program. APISpecGen has detected new bugs in the latest version of the Linux kernel, and we are currently working on addressing these newly detected bugs. The bug reports from the latest version differ from those detected in v5.16. But this does not affect our main claim.
 
-
+- **[Execution time]** 
+```shell
+real    312m36.944s
+user    340m12.665s
+sys     7m44.222s
+```
 ### 3. Utilizebility of API Aritifacts (Section VII.D).
 - **[Intro]** Use the generated specifications to evaluate the usability of API artifacts (including API documentation, API names, and API usage) for specification extraction. We use paired specifications for evaluation because these artifacts are commonly used to extract such specifications.
 - **[Run]** `./script/3.API_aritifact_analysis.sh`
