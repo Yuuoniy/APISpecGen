@@ -39,6 +39,6 @@ def pipeline(spec_file):
 
 
 if __name__ == "__main__":
-    spec_file = 'SpecGeneration/Data/ReferenceData/Merged_API_Specs_Paired.json'
+    spec_file = 'SpecGeneration/Data/ReferenceData/All_generated_paired_specs.json'
     spec_file = os.path.join(WORKDIR,  spec_file)
     pipeline(spec_file)

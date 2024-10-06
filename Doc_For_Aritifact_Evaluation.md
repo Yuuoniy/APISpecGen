@@ -151,14 +151,14 @@ Besides, the generated specifications can be used to detect bugs across differen
 ### 3. Utilizebility of API Aritifacts (Section VII.D).
 - **[Intro]** Use the generated specifications to evaluate the usability of API artifacts (including API documentation, API names, and API usage) for specification extraction. We use paired specifications for evaluation because these artifacts are commonly used to extract such specifications.
 - **[Run]** `./script/3.API_aritifact_analysis.sh`
-- **[Note]** We provide the previously generated specifications for analysis. Alternatively, you can specify the `spec_file` in `APIAritifactEval/APIAritifactEval.py`. The results should be similar.
+- **[Note]** We provide the previously generated paired specifications (`SpecGeneration/Data/ReferenceData/All_generated_paired_specs.json`) for analysis. Alternatively, you can specify the `spec_file` in `APIAritifactEval/APIAritifactEval.py`. The results should be similar.
 - **[Results]**  The analysis data reveals that API artifacts have significant limitations in specification extraction. 
 An example output is shown below:
 ```shell
-[API Name Analysis]: 15.96% APIs do not contain the informative subwords (verbs).
-[API Usage Analysis]: 93.80% API pairs usage occur less than 10 times, 88.07% API pairs usage occur less than 5 times.
-[API Doc Analysis]: 95.00% of specifcations are not mentioned in documents For all APIs pairs.
-[API Doc Analysis]: 76.31% of specifcations are not mentioned in documents for those API having docs
+[API Name Analysis]: 15.43% APIs do not contain the informative subwords (verbs).
+[API Usage Analysis]: 95.07% API pairs usage occur less than 10 times, 90.46% API pairs usage occur less than 5 times.
+[API Doc Analysis]: 95.71% of specifcations are not mentioned in documents For all APIs pairs.
+[API Doc Analysis]: 79.02% of specifcations are not mentioned in documents for those API having docs
 ```
 
 ### 4. Compared with related work. (Section VII C.)
