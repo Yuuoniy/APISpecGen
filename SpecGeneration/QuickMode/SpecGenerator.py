@@ -9,6 +9,7 @@ class SpecGenerator:
     
                 
     def infer_postOp_for_inferred_API(self, inferred_API, seedSecOp,inferred_critical_var,repo_name,propo_direction):
+        
         count = self.__find_spec_usage(inferred_API, seedSecOp,inferred_critical_var,repo_name)
         if count:
             return seedSecOp,count
@@ -23,7 +24,7 @@ class SpecGenerator:
         # find possible seed op
         inferred_secop = self.__find_possible_secOp(inferred_API, seedSecOp,inferred_critical_var,repo_name)
         if inferred_secop is not None:
-            count = self.__find_spec_usage(inferred_API, seedSecOp,inferred_critical_var,repo_name)
+            count = self.__find_spec_usage(inferred_API, inferred_secop,inferred_critical_var,repo_name)
             
             if propo_direction == 'succ':
                 is_data_related = self.__validate_the_inferred_secop(inferred_secop,seedSecOp)
