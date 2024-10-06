@@ -10,6 +10,17 @@ from config import SPEC_DATA_ROOT,SPEC_NUM_THREADS
 
 
 
+def is_paired_function(func1: str, func2: str) -> bool:
+    paired_words = {"get": "put", "alloc": "free", "start": "stop", "open": "close"}
+    parts1, parts2 = func1.split("_"), func2.split("_")
+    
+    if len(parts1) != len(parts2):
+        return False
+    differences = [(p1, p2) for p1, p2 in zip(parts1, parts2) if p1 != p2]
+    return len(differences) == 1 and paired_words.get(differences[0][0]) == differences[0][1]
+
+
+
 def quick_mode_for_checked_spec(seedSpec,repo_name,max_depth):
     analyzer = IsErrSpecPropogate(repo_name,max_depth)
     generated_specs = analyzer.workflow()
@@ -19,15 +30,25 @@ def quick_mode_for_checked_spec(seedSpec,repo_name,max_depth):
 def quick_mode_for_paired_spec(seedSpec,repo_name, max_depth):
     analyzer = SpecPropogateAnalyzer(repo_name,max_depth)
     generated_specs = analyzer.bidirectional_propogation_analysis(seedSpec)
+    generated_specs = filter_specs_by_usage(generated_specs)
     return generated_specs
 
 
 
 
 def filter_specs_by_usage(generated_specs):
-    filtered_specs = [entry for entry in generated_specs if not entry['var_path'].split('->')[-1] == 'arg']
-    filtered_specs = [entry for entry in filtered_specs if entry.get('hasUsage', False)]
+    filtered_specs = []
+    for entry in generated_specs:
+        var_path_last = entry['var_path'].split('->')[-1]
+        
+        if var_path_last == 'arg':
+            if is_paired_function(entry['API'], entry['SecOp']):
+                filtered_specs.append(entry)
+        else:
+            filtered_specs.append(entry)
+            
     
+    filtered_specs = [entry for entry in filtered_specs if entry.get('hasUsage', False)]
     # depuplicate
     filtered_specs = [dict(t) for t in {tuple(d.items()) for d in filtered_specs}]
     
@@ -41,8 +62,6 @@ def main(seedAPI, SeedSecOp, critical_var, repo_name, max_depth):
         generated_specs = quick_mode_for_checked_spec(seedSpec, repo_name, max_depth)
     else:
         generated_specs = quick_mode_for_paired_spec(seedSpec, repo_name, max_depth)
-    
-    generated_specs = filter_specs_by_usage(generated_specs)
     
     outfile = os.path.join(SPEC_DATA_ROOT,f'{repo_name}_{seedAPI}_{max_depth}_generated_specs.json') 
     

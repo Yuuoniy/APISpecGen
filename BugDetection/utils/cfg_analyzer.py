@@ -143,8 +143,8 @@ def get_assignment_right_variable(slice):
                 idents[0].child_by_field_name("right"), slice
             )
     except Exception as e:
-        print('get_assignment_right_variable error')
-        ic(slice,e)
+        # print('get_assignment_right_variable error')
+        # ic(slice,e)
         return 'XXXXX'
 
 

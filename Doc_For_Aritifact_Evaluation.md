@@ -64,9 +64,9 @@ Below is a generated specifcation example
 ```
 - **[Execution time]** 
 ```
-real    0m23.331s
-user    12m19.762s
-sys     12m35.620s
+real    2m46.960s
+user    118m24.263s
+sys     78m19.221s
 ```
 
 #### 1.1 Normal Test For Specfication Generation
@@ -96,15 +96,15 @@ Total Specs: 8791
 We updated some code logic in the artifacts, which results in slight differences in the data compared to what is presented in the paper. And the results support the main claim. 
 
 Below, we provide the execution time in our evaluations for reference. The data is saved to `SpecGeneration/Data/ReferenceData` 
-| SeedAPI           | Depth | Time                                         |
-| ----------------- | ----- | -------------------------------------------- |
-| get_device        | 10    | real: 48m, user: 1246m, sys: 871m            |
-| kstrdup           | 10    | real: 11m, user: 486m, sys: 309m             |
-| kmalloc           | 10    | real: 43m, user: 1767m, sys: 1251m           |
-| device_initialize | 10    | real: 2m, user: 85m, sys: 57m                |
-| try_module_get    | 10    | real: 2m, user: 86m, sys: 61m                |
-| ERR_PTR           | 10    | real: 14m, user:460m sys:457m                |
-| **Total Time**    | -     | real: 120 min; user: 4130 min, sys: 3006 min |
+| SeedAPI           | Depth | Time                                      |
+| ----------------- | ----- | ----------------------------------------- |
+| get_device        | 10    | real: 48m, user: 1921m, sys: 871m         |
+| kstrdup           | 10    | real: 11m, user: 486m, sys: 309m          |
+| kmalloc           | 10    | real: 43m, user: 1767m, sys: 1251m        |
+| device_initialize | 10    | real: 2m, user: 85m, sys: 57m             |
+| try_module_get    | 10    | real: 2m, user: 86m, sys: 61m             |
+| ERR_PTR           | 10    | real: 14m, user:460m sys:457m             |
+| **Total Time**    | -     | real: 120 min; user: 4805m, sys: 3006 min |
 
 
 
