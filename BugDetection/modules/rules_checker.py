@@ -105,8 +105,8 @@ class RuleCheckerSingle:
         # pdb.set_trace()
         dot_file = dot_file if dot_file is not None else self.get_dot_file(test_func)
         if not os.path.exists(dot_file):
-            ic(f'file {dot_file} not exist')
-            logger.error(f'file {dot_file} not exist')
+            # ic(f'file {dot_file} not exist')
+            # logger.error(f'file {dot_file} not exist')
             return False
         try:
             # ic(f"{test_func}")
@@ -121,7 +121,7 @@ class RuleCheckerSingle:
         except Exception as e:
             ic(test_func,dot_file,e)
             logger.error(e)
-            traceback.print_exc()
+            # traceback.print_exc()
             return False
 
     # TODO Rename this here and in `check_security_operations_for_func`

@@ -168,9 +168,9 @@ class CFGSimplifier:
             nx_agraph.write_dot(G_func,f"{dir}/simple_cfg/{G.name}-{self.main_api}.dot")
                 # print(f"saved to : {dir}/simple_cfg/{G.name}-{self.main_api}.dot")
         except Exception as e:
-            ic(f"{G.name} {e}")
+            # ic(f"{G.name} {e}")
             logger.error(f"{self.main_api} {G.name} {e}")
-            console.print_exception(show_locals=True)
+            # console.print_exception(show_locals=True)
             return
     
     def remove_self_cycle(self,G):
@@ -212,7 +212,8 @@ class CFGSimplifier:
                                 valid_labels.append(label) # statement
                                 return valid_paths,valid_labels # FIXME, why return here?
                         except Exception:
-                            print("error")
+                            pass
+                            # print("error")
                             
                         if self.dependency_on_critical_variable(label,critical_var) or any(ret in labels[node] for ret in ret_labels):
                             valid_paths.append(path[idx+1]) # id
