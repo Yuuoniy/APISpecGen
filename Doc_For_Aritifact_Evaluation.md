@@ -83,12 +83,14 @@ Example output is shown below:
 ```shell
 API Spec Count Summary:
               API  Specs Count
-       get_device          498
-device_initialize           51
-   try_module_get           66
-          kmalloc         1120
-          kstrdup           85
-          ERR_PTR         5207
+       get_device          831
+device_initialize           55
+   try_module_get           75
+          kmalloc         1332
+          kstrdup          121
+          ERR_PTR         6377
+
+Total Specs: 8791
 ```
 
 We updated some code logic in the artifacts, which results in slight differences in the data compared to what is presented in the paper. And the results support the main claim. 
@@ -96,13 +98,13 @@ We updated some code logic in the artifacts, which results in slight differences
 Below, we provide the execution time in our evaluations for reference. The data is saved to `SpecGeneration/Data/ReferenceData` 
 | SeedAPI           | Depth | Time                                         |
 | ----------------- | ----- | -------------------------------------------- |
-| get_device        | 10    | real: 32m, user: 1246m, sys: 871m            |
+| get_device        | 10    | real: 48m, user: 1246m, sys: 871m            |
 | kstrdup           | 10    | real: 11m, user: 486m, sys: 309m             |
 | kmalloc           | 10    | real: 43m, user: 1767m, sys: 1251m           |
 | device_initialize | 10    | real: 2m, user: 85m, sys: 57m                |
 | try_module_get    | 10    | real: 2m, user: 86m, sys: 61m                |
 | ERR_PTR           | 10    | real: 14m, user:460m sys:457m                |
-| **Total Time**    | -     | real: 104 min; user: 4130 min, sys: 3006 min |
+| **Total Time**    | -     | real: 120 min; user: 4130 min, sys: 3006 min |
 
 
 
