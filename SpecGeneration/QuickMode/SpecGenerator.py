@@ -22,18 +22,10 @@ class SpecGenerator:
                 return alternative_op, count
         
         # find possible seed op
-        inferred_secop = self.__find_possible_secOp(inferred_API, seedSecOp,inferred_critical_var,repo_name)
-        if inferred_secop is not None:
-            count = self.__find_spec_usage(inferred_API, inferred_secop,inferred_critical_var,repo_name)
-            
-            if propo_direction == 'succ':
-                is_data_related = self.__validate_the_inferred_secop(inferred_secop,seedSecOp)
-            elif propo_direction == 'pre':
-                is_data_related = True
-
-            if is_data_related:
-                return inferred_secop,count
-            
+        inferred_secop, count = self.__find_possible_secOp(inferred_API, seedSecOp, inferred_critical_var, repo_name, propo_direction)
+        if inferred_secop:
+            return inferred_secop, count
+  
         return None, 0
     
     def __find_spec_usage(self, target_API,sec_op,critical_var,repo_name) -> bool:
@@ -63,7 +55,7 @@ class SpecGenerator:
     
 
 
-    def __find_possible_secOp(self,inferred_API, seedSecOp,critical_var, repo_name):
+    def __find_possible_secOp(self,inferred_API, seedSecOp,critical_var, repo_name, propo_direction):
         if critical_var=='retval':
             query = f'$ret={inferred_API}(); $possible_sec_op($ret);'
             possible_sec_ops = CodeSearcher("linux").weggli_get_desired_filed(query,'possible_sec_op')
@@ -81,9 +73,17 @@ class SpecGenerator:
             keys = ['put','free','dec']
             
             if any(key in subwords for key in keys):
-                return possible_sec_op
+                count = self.__find_spec_usage(inferred_API, possible_sec_op,critical_var,repo_name)
+                if count:
+                    if propo_direction == 'succ':
+                        is_data_related = self.__validate_the_inferred_secop(possible_sec_op,seedSecOp)
+                    elif propo_direction == 'pre':
+                        is_data_related = True
+
+                    if is_data_related:
+                        return possible_sec_op,count
         
-        return None
+        return None,0
 
     def __validate_the_inferred_secop(self,pre_secOp,succ_secOp):
         query =  f'_ {pre_secOp}(_ *$var){{{succ_secOp}(_($var));}}'

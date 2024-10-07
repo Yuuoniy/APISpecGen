@@ -103,7 +103,6 @@ class SpecPropogateAnalyzer:
                     if (inferred_API, direction) in self.explore_specs:
                         continue
 
-                    
                     futures.append(executor.submit(self.analyze_wrapper, inferred_API, seedSpec.secOp, direction, current_depth, API_propa_path, critical_var_propa_path))
 
             for future in concurrent.futures.as_completed(futures):
@@ -133,7 +132,7 @@ class SpecPropogateAnalyzer:
             'var_path': '->'.join(current_var_path)
             }]
             
-            generated_spec = APISpec(wrapper, seed_secop, direction)
+            generated_spec = APISpec(wrapper, sec_op, direction)
             generated_specs += self.iterative_propogation_analysis_for_successors(generated_spec, current_depth + 1, current_API_path, current_var_path)
         else:
             generated_specs = []
