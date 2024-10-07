@@ -31,20 +31,22 @@ def cli(debug):
 def paired_spec_test(spec_path):
     try:
         if spec_path.endswith('.json'):
-            pairs = json.load(open(spec_path))
+            specs = json.load(open(spec_path))
+            
+            for spec in specs:
+                
+                spec['main_api'] = spec['API']
+                spec['sec_op'] = spec['SecOp']
+                spec['var_type'] = spec['var_role']
+                spec['api_status'] = 'success'
+                spec['path_type'] = 'error'
+            
         elif spec_path.endswith('.csv'):
-            pairs = pd.read_csv(spec_path)
-            pairs = pairs.to_dict('records')
+            specs = pd.read_csv(spec_path)
+            specs = specs.to_dict('records')
             
-        for pair in pairs:
-            spec = pair
+        for spec in specs:
             spec['repo_name'] = 'kernel'
-            spec['main_api'] = spec['API']
-            spec['sec_op'] = spec['SecOp']
-            spec['var_type'] = spec['var_role']
-            spec['api_status'] = 'success'
-            spec['path_type'] = 'error'
-            
             ic(spec)
             runner = Runner(spec)
             runner.bug_detect_runner_batch()

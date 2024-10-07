@@ -134,25 +134,26 @@ sys     0m8.942s
 
 - **[Run]** `./script/2.bug_detection.sh`
 
-- **[Results]** Using the specifcations, APISpecGen detects hundreads of new bugs in the Linux kernel. During the detection, the bug reports will be continuously logged into the file `BugDetection/data/bug_report.csv`. 
+- **[Results]** Using the specifcations, APISpecGen detects hundreads of new bugs in the Linux kernel. During the detection, the bug reports will be continuously logged into the file `BugDetection/data/bug_report.csv`. We provide reference data in `BugDetection/ReferenceData/bug_report.csv`
 
 - The bug report example, which include the buggy func and the corresponding specifcations (`main_api,sec_op,var_type`).
 ```csv
 repo_name,buggy_func,main_api,sec_op,var_type,var,scope,violated_path_num
 kernel,nfc_genl_vendor_cmd,nfc_get_device,nfc_put_device,retval,dev,Local,6
 ```
+
 It often requires to validate whether the reported bugs are true. 
-In the aritifacts, we provide a list of true bugs we confirmed in the Linux kernel v5.16 for automatically confirm the main claim that the generated specifications can detect numerous new bugs. After the detection, you may run `python script/ResultsCheck/check_bug_detect.py` to check that the true bugs are detected by the APISpecGen. 
+In the aritifacts, we provide a list of 100 true bugs we confirmed in the Linux kernel v5.16 for automatically confirm the main claim. After the detection, you may run `python script/ResultsCheck/check_bug_detect.py` to check that the true bugs are detected by the APISpecGen, it use the reference data by default. If you want to use the own generated reports, set the `bug_reports` varaible in the scripts.  
 
-If you want to manually confirm the bug reports, you may use the script (`BugDetection/report_ranker.py`) to rank the reports, with reports are the front are more likey to be true bugs. (Run `python BugDetection/report_ranker.py --file BugDetection/data/bug_report.csv`)
+We samlped reports for check. If you want to manually confirm the bug reports, you may use the script (`BugDetection/report_ranker.py`) to rank the reports, with reports are the front are more likey to be true bugs. (Run `python BugDetection/report_ranker.py --file BugDetection/data/bug_report.csv`)
 
-Besides, the generated specifications can be used to detect bugs across different versions of the program. APISpecGen has detected new bugs in the latest version of the Linux kernel, and we are currently working on addressing these newly detected bugs. The bug reports from the latest version differ from those detected in v5.16. But this does not affect our main claim.
+Besides, the generated specifications can be used to detect bugs across different versions of the program. APISpecGen has detected new bugs in the latest version of the Linux kernel, and we are currently working on addressing the undisclosed bugs. The bug reports from the latest version differ from those detected in v5.16. But this does not affect the main claim.
 
 - **[Execution time]** 
 ```shell
-real    312m36.944s
-user    340m12.665s
-sys     7m44.222s
+real    103m48.172s
+user    176m56.169s
+sys     6m41.813s
 ```
 ### 3. Utilizebility of API Aritifacts (Section VII.D).
 - **[Intro]** Use the generated specifications to evaluate the usability of API artifacts (including API documentation, API names, and API usage) for specification extraction. We use paired specifications for evaluation because these artifacts are commonly used to extract such specifications.
