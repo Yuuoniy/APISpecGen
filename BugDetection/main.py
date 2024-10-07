@@ -25,9 +25,7 @@ logger.name = 'detector'
 def cli(debug):
     click.echo(f"Debug mode is {'on' if debug else 'off'}")
 
-# python main.py test_repo kernel --pair_path /root/similar-bug/APIClustering/API_data/func_pair/kernel_pair.json
-# time python main.py paired_spec_test --pair_path /root/SecSpecGen/BugDetection/GeneratedSpec/CheckSpec/kref_put.csv
-# format: 
+
 @cli.command("paired_spec_test")
 @click.option('--spec_path')
 def paired_spec_test(spec_path):
@@ -41,6 +39,12 @@ def paired_spec_test(spec_path):
         for pair in pairs:
             spec = pair
             spec['repo_name'] = 'kernel'
+            spec['main_api'] = spec['API']
+            spec['sec_op'] = spec['SecOp']
+            spec['var_type'] = spec['var_role']
+            spec['api_status'] = 'success'
+            spec['path_type'] = 'error'
+            
             ic(spec)
             runner = Runner(spec)
             runner.bug_detect_runner_batch()
@@ -80,7 +84,6 @@ def checked_spec_test(spec_path):
         return False
 
 def run_chk_runner(spec):
-    """线程执行的函数，处理每个 spec"""
     try:
         chk_runner = ChkRunner(spec)
         chk_runner.runner()
