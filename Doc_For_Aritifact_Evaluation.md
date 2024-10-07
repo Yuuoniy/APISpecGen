@@ -83,14 +83,14 @@ Example output is shown below:
 ```shell
 API Spec Count Summary:
               API  Specs Count
-       get_device          831
-device_initialize           55
-   try_module_get           75
-          kmalloc         1332
-          kstrdup          121
+       get_device         1089
+device_initialize           57
+   try_module_get           92
+          kmalloc         1423
+          kstrdup          124
           ERR_PTR         6377
 
-Total Specs: 8791
+Total Specs: 9162
 ```
 
 We updated some code logic in the artifacts, which results in slight differences in the data compared to what is presented in the paper. And the results support the main claim. 
@@ -163,10 +163,10 @@ sys     6m41.813s
 - **[Results]**  The analysis data reveals that API artifacts have significant limitations in specification extraction. 
 An example output is shown below:
 ```shell
-[API Name Analysis]: 15.43% APIs do not contain the informative subwords (verbs).
-[API Usage Analysis]: 95.07% API pairs usage occur less than 10 times, 90.46% API pairs usage occur less than 5 times.
-[API Doc Analysis]: 95.71% of specifcations are not mentioned in documents For all APIs pairs.
-[API Doc Analysis]: 79.02% of specifcations are not mentioned in documents for those API having docs
+[API Name Analysis]: 15.82% APIs do not contain the informative subwords (verbs).
+[API Usage Analysis]: 95.41% API pairs usage occur less than 10 times, 90.53% API pairs usage occur less than 5 times.
+[API Doc Analysis]: 95.69% of specifcations are not mentioned in documents For all APIs pairs.
+[API Doc Analysis]: 79.43% of specifcations are not mentioned in documents for those API having docs
 ```
 
 ### 4. Compared with related work. (Section VII C.)

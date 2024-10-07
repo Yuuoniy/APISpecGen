@@ -1,56 +1,146 @@
 [
     {
-        "API": "__alloc_disk_node",
-        "SecOp": "put_disk",
+        "API": "iscsi_host_alloc",
+        "SecOp": "scsi_host_put",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 2,
+        "API_path": "device_initialize->scsi_host_alloc->iscsi_host_alloc",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "iio_device_alloc",
+        "SecOp": "iio_device_free",
         "hasUsage": true,
         "usageCount": 2,
         "depth": 1,
-        "API_path": "device_initialize->__alloc_disk_node",
+        "API_path": "device_initialize->iio_device_alloc",
         "var_path": "arg->retval"
     },
     {
-        "API": "parport_register_port",
-        "SecOp": "parport_put_port",
+        "API": "spmi_device_alloc",
+        "SecOp": "spmi_device_put",
         "hasUsage": true,
-        "usageCount": 5,
-        "depth": 2,
-        "API_path": "device_initialize->device_register->parport_register_port",
-        "var_path": "arg->arg->retval"
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->spmi_device_alloc",
+        "var_path": "arg->retval"
     },
     {
-        "API": "snd_soc_alloc_ac97_component",
+        "API": "spi_alloc_slave",
+        "SecOp": "spi_controller_put",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 2,
+        "API_path": "device_initialize->__spi_alloc_controller->spi_alloc_slave",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "tb_switch_alloc",
+        "SecOp": "tb_switch_put",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 1,
+        "API_path": "device_initialize->tb_switch_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "vfio_group_alloc",
         "SecOp": "put_device",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "device_initialize->snd_soc_alloc_ac97_component",
+        "API_path": "device_initialize->vfio_group_alloc",
         "var_path": "arg->retval"
     },
     {
-        "API": "rproc_alloc",
-        "SecOp": "rproc_free",
+        "API": "edac_mc_alloc",
+        "SecOp": "edac_mc_free",
         "hasUsage": true,
-        "usageCount": 17,
+        "usageCount": 39,
         "depth": 1,
-        "API_path": "device_initialize->rproc_alloc",
+        "API_path": "device_initialize->edac_mc_alloc",
         "var_path": "arg->retval"
     },
     {
-        "API": "get_phy_device",
-        "SecOp": "phy_device_free",
+        "API": "moxtet_alloc_device",
+        "SecOp": "put_device",
         "hasUsage": true,
-        "usageCount": 7,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "device_initialize->moxtet_alloc_device",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "sas_port_alloc_num",
+        "SecOp": "sas_port_free",
+        "hasUsage": true,
+        "usageCount": 2,
         "depth": 2,
-        "API_path": "device_initialize->phy_device_create->get_phy_device",
+        "API_path": "device_initialize->sas_port_alloc->sas_port_alloc_num",
         "var_path": "arg->retval->retval"
     },
     {
-        "API": "smcd_alloc_dev",
-        "SecOp": "smcd_free_dev",
+        "API": "mdio_device_create",
+        "SecOp": "mdio_device_free",
+        "hasUsage": true,
+        "usageCount": 7,
+        "depth": 1,
+        "API_path": "device_initialize->mdio_device_create",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "tb_domain_alloc",
+        "SecOp": "tb_domain_put",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "device_initialize->smcd_alloc_dev",
+        "API_path": "device_initialize->tb_domain_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nfc_allocate_device",
+        "SecOp": "nfc_free_device",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->nfc_allocate_device",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "pn532_i2c_nfc_alloc",
+        "SecOp": "nfc_free_device",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "device_initialize->nfc_allocate_device->pn532_i2c_nfc_alloc",
+        "var_path": "arg->retval->arg"
+    },
+    {
+        "API": "net2272_probe_init",
+        "SecOp": "usb_put_gadget",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "device_initialize->usb_initialize_gadget->net2272_probe_init",
+        "var_path": "arg->arg->retval"
+    },
+    {
+        "API": "phy_device_create",
+        "SecOp": "phy_device_free",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "device_initialize->phy_device_create",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "gb_module_create",
+        "SecOp": "gb_module_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->gb_module_create",
         "var_path": "arg->retval"
     },
     {
@@ -72,204 +162,6 @@
         "var_path": "arg->retval->retval"
     },
     {
-        "API": "spmi_controller_alloc",
-        "SecOp": "spmi_controller_put",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->spmi_controller_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "iscsi_alloc_session",
-        "SecOp": "iscsi_free_session",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->iscsi_alloc_session",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "tb_switch_alloc_safe_mode",
-        "SecOp": "tb_switch_put",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->tb_switch_alloc_safe_mode",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "of_register_spi_device",
-        "SecOp": "put_device",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 2,
-        "API_path": "device_initialize->spi_alloc_device->of_register_spi_device",
-        "var_path": "arg->retval->retval"
-    },
-    {
-        "API": "mdio_device_create",
-        "SecOp": "mdio_device_free",
-        "hasUsage": true,
-        "usageCount": 7,
-        "depth": 1,
-        "API_path": "device_initialize->mdio_device_create",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "sas_port_alloc",
-        "SecOp": "sas_port_free",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->sas_port_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "tpm_chip_alloc",
-        "SecOp": "put_device",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->tpm_chip_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "edac_mc_alloc",
-        "SecOp": "edac_mc_free",
-        "hasUsage": true,
-        "usageCount": 39,
-        "depth": 1,
-        "API_path": "device_initialize->edac_mc_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "spmi_device_alloc",
-        "SecOp": "spmi_device_put",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->spmi_device_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "spi_alloc_device",
-        "SecOp": "spi_dev_put",
-        "hasUsage": true,
-        "usageCount": 5,
-        "depth": 1,
-        "API_path": "device_initialize->spi_alloc_device",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "serdev_device_alloc",
-        "SecOp": "serdev_device_put",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->serdev_device_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "bnx2i_alloc_hba",
-        "SecOp": "bnx2i_free_hba",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "device_initialize->scsi_host_alloc->iscsi_host_alloc->bnx2i_alloc_hba",
-        "var_path": "arg->retval->arg->retval"
-    },
-    {
-        "API": "wbsd_alloc_mmc",
-        "SecOp": "wbsd_free_mmc",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 2,
-        "API_path": "device_initialize->mmc_alloc_host->wbsd_alloc_mmc",
-        "var_path": "arg->retval->arg"
-    },
-    {
-        "API": "sas_port_alloc_num",
-        "SecOp": "sas_port_free",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 2,
-        "API_path": "device_initialize->sas_port_alloc->sas_port_alloc_num",
-        "var_path": "arg->retval->retval"
-    },
-    {
-        "API": "nd_pfn_devinit",
-        "SecOp": "put_device",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->nd_pfn_devinit",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "sas_phy_alloc",
-        "SecOp": "sas_phy_free",
-        "hasUsage": true,
-        "usageCount": 4,
-        "depth": 1,
-        "API_path": "device_initialize->sas_phy_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "ssam_device_alloc",
-        "SecOp": "ssam_device_put",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->ssam_device_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "intel_th_device_alloc",
-        "SecOp": "put_device",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->intel_th_device_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "gb_module_create",
-        "SecOp": "gb_module_put",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->gb_module_create",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "nfc_allocate_device",
-        "SecOp": "nfc_free_device",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->nfc_allocate_device",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "snd_soc_new_ac97_component",
-        "SecOp": "snd_soc_free_ac97_component",
-        "hasUsage": true,
-        "usageCount": 5,
-        "depth": 2,
-        "API_path": "device_initialize->snd_soc_alloc_ac97_component->snd_soc_new_ac97_component",
-        "var_path": "arg->retval->retval"
-    },
-    {
-        "API": "alloc_clt",
-        "SecOp": "free_clt",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 2,
-        "API_path": "device_initialize->device_register->alloc_clt",
-        "var_path": "arg->arg->retval"
-    },
-    {
         "API": "jmb38x_ms_alloc_host",
         "SecOp": "jmb38x_ms_free_host",
         "hasUsage": true,
@@ -279,93 +171,21 @@
         "var_path": "arg->retval->arg"
     },
     {
-        "API": "iscsi_host_alloc",
-        "SecOp": "iscsi_host_free",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 2,
-        "API_path": "device_initialize->scsi_host_alloc->iscsi_host_alloc",
-        "var_path": "arg->retval->retval"
-    },
-    {
-        "API": "mcp_host_alloc",
-        "SecOp": "mcp_host_free",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->mcp_host_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "serdev_controller_alloc",
-        "SecOp": "serdev_controller_put",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->serdev_controller_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "usb_alloc_dev",
-        "SecOp": "usb_put_dev",
+        "API": "__alloc_disk_node",
+        "SecOp": "put_disk",
         "hasUsage": true,
         "usageCount": 2,
         "depth": 1,
-        "API_path": "device_initialize->usb_alloc_dev",
+        "API_path": "device_initialize->__alloc_disk_node",
         "var_path": "arg->retval"
     },
     {
-        "API": "spi_alloc_master",
-        "SecOp": "spi_controller_put",
-        "hasUsage": true,
-        "usageCount": 15,
-        "depth": 2,
-        "API_path": "device_initialize->__spi_alloc_controller->spi_alloc_master",
-        "var_path": "arg->retval->retval"
-    },
-    {
-        "API": "tb_switch_alloc",
+        "API": "alloc_switch",
         "SecOp": "tb_switch_put",
         "hasUsage": true,
-        "usageCount": 4,
-        "depth": 1,
-        "API_path": "device_initialize->tb_switch_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "memstick_alloc_host",
-        "SecOp": "memstick_free_host",
-        "hasUsage": true,
-        "usageCount": 5,
-        "depth": 1,
-        "API_path": "device_initialize->memstick_alloc_host",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "vfio_group_alloc",
-        "SecOp": "put_device",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "device_initialize->vfio_group_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "scsi_host_alloc",
-        "SecOp": "scsi_host_put",
-        "hasUsage": true,
-        "usageCount": 98,
-        "depth": 1,
-        "API_path": "device_initialize->scsi_host_alloc",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "NCR_700_detect",
-        "SecOp": "scsi_host_put",
-        "hasUsage": true,
-        "usageCount": 7,
+        "usageCount": 2,
         "depth": 2,
-        "API_path": "device_initialize->scsi_host_alloc->NCR_700_detect",
+        "API_path": "device_initialize->tb_switch_alloc->alloc_switch",
         "var_path": "arg->retval->retval"
     },
     {
@@ -378,12 +198,102 @@
         "var_path": "arg->retval->retval"
     },
     {
-        "API": "tifm_alloc_adapter",
-        "SecOp": "tifm_free_adapter",
+        "API": "snd_soc_alloc_ac97_component",
+        "SecOp": "put_device",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "device_initialize->tifm_alloc_adapter",
+        "API_path": "device_initialize->snd_soc_alloc_ac97_component",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "spi_alloc_master",
+        "SecOp": "spi_controller_put",
+        "hasUsage": true,
+        "usageCount": 15,
+        "depth": 2,
+        "API_path": "device_initialize->__spi_alloc_controller->spi_alloc_master",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "sas_phy_alloc",
+        "SecOp": "sas_phy_free",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 1,
+        "API_path": "device_initialize->sas_phy_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "serdev_controller_alloc",
+        "SecOp": "serdev_controller_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->serdev_controller_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "get_phy_device",
+        "SecOp": "phy_device_free",
+        "hasUsage": true,
+        "usageCount": 7,
+        "depth": 2,
+        "API_path": "device_initialize->phy_device_create->get_phy_device",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "rproc_alloc",
+        "SecOp": "rproc_free",
+        "hasUsage": true,
+        "usageCount": 17,
+        "depth": 1,
+        "API_path": "device_initialize->rproc_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "NCR_700_detect",
+        "SecOp": "scsi_host_put",
+        "hasUsage": true,
+        "usageCount": 7,
+        "depth": 2,
+        "API_path": "device_initialize->scsi_host_alloc->NCR_700_detect",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "alloc_clt",
+        "SecOp": "free_clt",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "device_initialize->device_register->alloc_clt",
+        "var_path": "arg->arg->retval"
+    },
+    {
+        "API": "scsi_host_alloc",
+        "SecOp": "scsi_host_put",
+        "hasUsage": true,
+        "usageCount": 98,
+        "depth": 1,
+        "API_path": "device_initialize->scsi_host_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "wbsd_alloc_mmc",
+        "SecOp": "wbsd_free_mmc",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "device_initialize->mmc_alloc_host->wbsd_alloc_mmc",
+        "var_path": "arg->retval->arg"
+    },
+    {
+        "API": "mcp_host_alloc",
+        "SecOp": "mcp_host_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->mcp_host_alloc",
         "var_path": "arg->retval"
     },
     {
@@ -396,15 +306,6 @@
         "var_path": "arg->retval"
     },
     {
-        "API": "phy_device_create",
-        "SecOp": "phy_device_free",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->phy_device_create",
-        "var_path": "arg->retval"
-    },
-    {
         "API": "hisi_sas_shost_alloc_pci",
         "SecOp": "scsi_host_put",
         "hasUsage": true,
@@ -414,30 +315,39 @@
         "var_path": "arg->retval->retval"
     },
     {
-        "API": "rc_allocate_device",
-        "SecOp": "rc_free_device",
+        "API": "serdev_device_alloc",
+        "SecOp": "serdev_device_put",
         "hasUsage": true,
-        "usageCount": 39,
+        "usageCount": 2,
         "depth": 1,
-        "API_path": "device_initialize->rc_allocate_device",
+        "API_path": "device_initialize->serdev_device_alloc",
         "var_path": "arg->retval"
     },
     {
-        "API": "tb_domain_alloc",
-        "SecOp": "tb_domain_put",
+        "API": "snd_soc_new_ac97_component",
+        "SecOp": "snd_soc_free_ac97_component",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 2,
+        "API_path": "device_initialize->snd_soc_alloc_ac97_component->snd_soc_new_ac97_component",
+        "var_path": "arg->retval->retval"
+    },
+    {
+        "API": "tifm_alloc_adapter",
+        "SecOp": "tifm_free_adapter",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "device_initialize->tb_domain_alloc",
+        "API_path": "device_initialize->tifm_alloc_adapter",
         "var_path": "arg->retval"
     },
     {
-        "API": "mmc_alloc_host",
-        "SecOp": "mmc_free_host",
+        "API": "memstick_alloc_host",
+        "SecOp": "memstick_free_host",
         "hasUsage": true,
-        "usageCount": 32,
+        "usageCount": 5,
         "depth": 1,
-        "API_path": "device_initialize->mmc_alloc_host",
+        "API_path": "device_initialize->memstick_alloc_host",
         "var_path": "arg->retval"
     },
     {
@@ -450,30 +360,66 @@
         "var_path": "arg->retval"
     },
     {
-        "API": "iio_device_alloc",
-        "SecOp": "iio_device_free",
+        "API": "parport_register_port",
+        "SecOp": "parport_put_port",
         "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->iio_device_alloc",
-        "var_path": "arg->retval"
+        "usageCount": 5,
+        "depth": 2,
+        "API_path": "device_initialize->device_register->parport_register_port",
+        "var_path": "arg->arg->retval"
     },
     {
-        "API": "moxtet_alloc_device",
-        "SecOp": "put_device",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "device_initialize->moxtet_alloc_device",
-        "var_path": "arg->retval"
-    },
-    {
-        "API": "__nd_btt_create",
+        "API": "tpm_chip_alloc",
         "SecOp": "put_device",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "device_initialize->__nd_btt_create",
+        "API_path": "device_initialize->tpm_chip_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "bnx2i_alloc_hba",
+        "SecOp": "bnx2i_free_hba",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "device_initialize->scsi_host_alloc->iscsi_host_alloc->bnx2i_alloc_hba",
+        "var_path": "arg->retval->arg->retval"
+    },
+    {
+        "API": "spi_alloc_device",
+        "SecOp": "spi_dev_put",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 1,
+        "API_path": "device_initialize->spi_alloc_device",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "mmc_alloc_host",
+        "SecOp": "mmc_free_host",
+        "hasUsage": true,
+        "usageCount": 32,
+        "depth": 1,
+        "API_path": "device_initialize->mmc_alloc_host",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "usb_alloc_dev",
+        "SecOp": "usb_put_dev",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "device_initialize->usb_alloc_dev",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "rc_allocate_device",
+        "SecOp": "rc_free_device",
+        "hasUsage": true,
+        "usageCount": 39,
+        "depth": 1,
+        "API_path": "device_initialize->rc_allocate_device",
         "var_path": "arg->retval"
     },
     {
@@ -486,12 +432,84 @@
         "var_path": "arg->retval->retval"
     },
     {
-        "API": "alloc_switch",
-        "SecOp": "tb_switch_put",
+        "API": "spmi_controller_alloc",
+        "SecOp": "spmi_controller_put",
         "hasUsage": true,
         "usageCount": 2,
-        "depth": 2,
-        "API_path": "device_initialize->tb_switch_alloc->alloc_switch",
-        "var_path": "arg->retval->retval"
+        "depth": 1,
+        "API_path": "device_initialize->spmi_controller_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "sas_port_alloc",
+        "SecOp": "sas_port_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->sas_port_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "tb_switch_alloc_safe_mode",
+        "SecOp": "tb_switch_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->tb_switch_alloc_safe_mode",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "nd_pfn_devinit",
+        "SecOp": "put_device",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "device_initialize->nd_pfn_devinit",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "__nd_btt_create",
+        "SecOp": "put_device",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->__nd_btt_create",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "intel_th_device_alloc",
+        "SecOp": "put_device",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->intel_th_device_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "smcd_alloc_dev",
+        "SecOp": "smcd_free_dev",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->smcd_alloc_dev",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "ssam_device_alloc",
+        "SecOp": "ssam_device_put",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "device_initialize->ssam_device_alloc",
+        "var_path": "arg->retval"
+    },
+    {
+        "API": "iscsi_alloc_session",
+        "SecOp": "iscsi_free_session",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "device_initialize->iscsi_alloc_session",
+        "var_path": "arg->retval"
     }
 ]

@@ -1,20 +1,74 @@
 [
     {
-        "API": "phy_attached_info_irq",
+        "API": "join",
         "SecOp": "kfree",
         "hasUsage": true,
-        "usageCount": 2,
+        "usageCount": 5,
         "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->phy_attached_info_irq",
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->join",
         "var_path": "retval->retval->retval->retval->retval"
     },
     {
-        "API": "convert_to_nt_pathname",
+        "API": "memdup_sockptr_nul",
         "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_sockptr_nul",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "cifs_get_tcp_session",
+        "SecOp": "cifs_put_tcp_session",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "kstrdup->convert_to_nt_pathname",
+        "API_path": "kstrdup->cifs_get_tcp_session",
+        "var_path": "retval->arg"
+    },
+    {
+        "API": "dup_iter",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dup_iter",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "cm_copy_private_data",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->cm_copy_private_data",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "copy_dev_ioctl",
+        "SecOp": "free_dev_ioctl",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->copy_dev_ioctl",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "memdup_user",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 167,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "rpc_sockaddr2uaddr",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "kstrdup->rpc_sockaddr2uaddr",
         "var_path": "retval->retval"
     },
     {
@@ -27,382 +81,22 @@
         "var_path": "retval->retval->retval->retval"
     },
     {
-        "API": "xenbus_read",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 17,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->join->xenbus_read",
-        "var_path": "retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "iio_buffers_alloc_sysfs_and_mask",
-        "SecOp": "iio_buffers_free_sysfs_and_mask",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kstrdup_const->iio_buffer_wrap_attr->__iio_buffer_alloc_sysfs_and_mask->iio_buffers_alloc_sysfs_and_mask",
-        "var_path": "retval->retval->arg->arg->arg"
-    },
-    {
-        "API": "kstrndup",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 47,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->kstrndup",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "dw_hdmi_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->dw_hdmi_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "alloc_clt",
-        "SecOp": "free_clt",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->device_get_devnode->devtmpfs_create_node->device_add->device_register->alloc_clt",
-        "var_path": "retval->retval->arg->arg->arg->retval"
-    },
-    {
-        "API": "scsi_bios_ptable",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 4,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->scsi_bios_ptable",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "fsl_mc_msi_alloc_descs",
-        "SecOp": "fsl_mc_msi_free_descs",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->alloc_msi_entry->fsl_mc_msi_alloc_descs",
-        "var_path": "retval->retval->retval->arg->arg"
-    },
-    {
-        "API": "rtw89_hex2bin_user",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->rtw89_hex2bin_user",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "join",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 5,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->join",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "memdup_sockptr",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 8,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_sockptr",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "kstrdup_const",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "kstrdup->kstrdup_const",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "memdup_user_nul",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 67,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user_nul",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "w1_alloc_dev",
-        "SecOp": "w1_free_dev",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->device_get_devnode->devtmpfs_create_node->device_add->device_register->w1_alloc_dev",
-        "var_path": "retval->retval->arg->arg->arg->retval"
-    },
-    {
-        "API": "clkctrl_get_clock_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->clkctrl_get_clock_name",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "snd_soc_dapm_new_control",
-        "SecOp": "snd_soc_dapm_free_widget",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dapm_cnew_widget->snd_soc_dapm_new_control_unlocked->snd_soc_dapm_new_control",
-        "var_path": "retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "kasprintf",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 221,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "kmalloc_track_caller",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 5,
-        "depth": 1,
-        "API_path": "kstrdup->kmalloc_track_caller",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "copyin_string",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user_nul->copyin_string",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "setup_conf",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->kstrdup_const->kmem_cache_create_usercopy->kmem_cache_create->grow_stripes->setup_conf",
-        "var_path": "retval->retval->arg->arg->arg->retval"
-    },
-    {
         "API": "qede_alloc_fp_array",
         "SecOp": "qede_free_fp_array",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 4,
         "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->qede_alloc_fp_array",
-        "var_path": "retval->retval->retval->retval->arg"
+        "var_path": "retval->retval->retval->arg->arg"
     },
     {
-        "API": "tc_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->tc_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "scsi_dh_attached_handler_name",
+        "API": "safe_name",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "kstrdup->scsi_dh_attached_handler_name",
+        "API_path": "kstrdup->safe_name",
         "var_path": "retval->retval"
-    },
-    {
-        "API": "match_strdup",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 24,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup_nul->match_strdup",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "psp_copy_user_blob",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 6,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->psp_copy_user_blob",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "iwl_mvm_update_mcc",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->iwl_mvm_update_mcc",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "intel_sdvo_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->intel_sdvo_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "ocxl_afu_irq_alloc",
-        "SecOp": "ocxl_afu_irq_free",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->setup_afu_irq->ocxl_afu_irq_alloc",
-        "var_path": "retval->retval->retval->arg->arg->arg"
-    },
-    {
-        "API": "ovl_get_redirect_xattr",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 10,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->vfs_getxattr_alloc->cap_inode_getsecurity->security_inode_getsecurity->xattr_getsecurity->vfs_getxattr->ovl_do_getxattr->ovl_get_redirect_xattr",
-        "var_path": "retval->retval->retval->arg->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "xenbus_directory",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 7,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->join->xenbus_directory",
-        "var_path": "retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "cdns_mhdp_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 6,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->cdns_mhdp_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "vfs_dup_fs_context",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->vfs_dup_fs_context",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "alloc_trace_kprobe",
-        "SecOp": "free_trace_kprobe",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 2,
-        "API_path": "kstrdup->trace_probe_init->alloc_trace_kprobe",
-        "var_path": "retval->arg->retval"
-    },
-    {
-        "API": "alloc_client",
-        "SecOp": "free_client",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->xdr_netobj_dup->alloc_client",
-        "var_path": "retval->retval->retval->arg->retval"
-    },
-    {
-        "API": "extract_sharename",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "kstrdup->extract_sharename",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "drm_edid_duplicate",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "drm_do_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "clkctrl_get_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->clkctrl_get_name",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "ipaq_micro_str",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "kstrdup->ipaq_micro_str",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "kstrndup_noeol",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kstrndup->kstrndup_noeol",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "krealloc",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 10,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "__iio_buffer_alloc_sysfs_and_mask",
-        "SecOp": "__iio_buffer_free_sysfs_and_mask",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kstrdup_const->iio_buffer_wrap_attr->__iio_buffer_alloc_sysfs_and_mask",
-        "var_path": "retval->retval->arg->arg"
-    },
-    {
-        "API": "snd_soc_dapm_new_control_unlocked",
-        "SecOp": "snd_soc_dapm_free_widget",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dapm_cnew_widget->snd_soc_dapm_new_control_unlocked",
-        "var_path": "retval->retval->retval->retval->retval"
     },
     {
         "API": "uclogic_rdesc_template_apply",
@@ -414,85 +108,22 @@
         "var_path": "retval->retval->retval->retval"
     },
     {
-        "API": "ipv6_route_sysctl_init",
+        "API": "xenbus_directory",
         "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 7,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->join->xenbus_directory",
+        "var_path": "retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "setup_conf",
+        "SecOp": "free_conf",
         "hasUsage": true,
         "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->ipv6_route_sysctl_init",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "rpc_sockaddr2uaddr",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "kstrdup->rpc_sockaddr2uaddr",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "kvasprintf",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 5,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "make_driver_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->make_driver_name",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "ep93xx_get_machine_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->ep93xx_get_machine_name",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "ffs_prepare_buffer",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->ffs_prepare_buffer",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "memdup_to_str",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->memdup_to_str",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "memdup_user",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 167,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "strndup_user",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 17,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->strndup_user",
-        "var_path": "retval->retval->retval->retval"
+        "depth": 5,
+        "API_path": "kstrdup->kstrdup_const->kmem_cache_create_usercopy->kmem_cache_create->grow_stripes->setup_conf",
+        "var_path": "retval->retval->arg->arg->arg->retval"
     },
     {
         "API": "software_node_alloc",
@@ -504,58 +135,31 @@
         "var_path": "retval->arg->retval->retval"
     },
     {
-        "API": "event_fmt",
+        "API": "psp_copy_user_blob",
         "SecOp": "kfree",
         "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->event_fmt",
-        "var_path": "retval->retval->retval->retval->retval"
+        "usageCount": 6,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->psp_copy_user_blob",
+        "var_path": "retval->retval->retval->retval"
     },
     {
-        "API": "mxs_get_revision",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->mxs_get_revision",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "usb_get_gadget_udc_name",
+        "API": "convert_to_nt_pathname",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "kstrdup->usb_get_gadget_udc_name",
+        "API_path": "kstrdup->convert_to_nt_pathname",
         "var_path": "retval->retval"
     },
     {
-        "API": "drm_get_edid",
+        "API": "krealloc",
         "SecOp": "kfree",
         "hasUsage": true,
-        "usageCount": 27,
-        "depth": 6,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "qede_alloc_fp_array",
-        "SecOp": "qede_free_fp_array",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->qede_alloc_fp_array",
-        "var_path": "retval->retval->retval->arg->arg"
-    },
-    {
-        "API": "follow_link",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->follow_link",
-        "var_path": "retval->retval->retval->retval->retval"
+        "usageCount": 10,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc",
+        "var_path": "retval->retval->retval->retval"
     },
     {
         "API": "meson_nand_op_get_dma_safe_output_buf",
@@ -567,132 +171,6 @@
         "var_path": "retval->retval->retval->arg"
     },
     {
-        "API": "i2c_get_dma_safe_msg_buf",
-        "SecOp": "i2c_put_dma_safe_msg_buf",
-        "hasUsage": true,
-        "usageCount": 4,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->i2c_get_dma_safe_msg_buf",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "intel_crt_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->intel_crt_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "x509_cert_parse",
-        "SecOp": "x509_free_certificate",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->x509_get_sig_params->x509_cert_parse",
-        "var_path": "retval->retval->retval->arg->retval"
-    },
-    {
-        "API": "ovl_get_redirect_xattr",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 10,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->vfs_getxattr_alloc->cap_inode_getsecurity->security_inode_getsecurity->xattr_getsecurity->vfs_getxattr->ovl_do_getxattr->ovl_get_redirect_xattr",
-        "var_path": "retval->retval->retval->arg->retval->retval->retval->retval->arg->arg->retval"
-    },
-    {
-        "API": "dfs_cache_canonical_path",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "kstrdup->dfs_cache_canonical_path",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "alloc_trace_uprobe",
-        "SecOp": "free_trace_uprobe",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 2,
-        "API_path": "kstrdup->trace_probe_init->alloc_trace_uprobe",
-        "var_path": "retval->arg->retval"
-    },
-    {
-        "API": "nfs_get_client",
-        "SecOp": "nfs_put_client",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->xdr_netobj_dup->alloc_client->nfs_get_client",
-        "var_path": "retval->retval->retval->arg->retval->retval"
-    },
-    {
-        "API": "alloc_trial_cpuset",
-        "SecOp": "free_cpuset",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->alloc_trial_cpuset",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "make_slot_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "kstrdup->make_slot_name",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "i2c_get_dma_safe_msg_buf",
-        "SecOp": "i2c_put_dma_safe_msg_buf",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->i2c_get_dma_safe_msg_buf",
-        "var_path": "retval->retval->retval->arg"
-    },
-    {
-        "API": "kmemdup_nul",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 23,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup_nul",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "cm_copy_private_data",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->cm_copy_private_data",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "psb_intel_sdvo_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->psb_intel_sdvo_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "rproc_alloc",
-        "SecOp": "rproc_free",
-        "hasUsage": true,
-        "usageCount": 17,
-        "depth": 3,
-        "API_path": "kstrdup->kstrdup_const->rproc_alloc_firmware->rproc_alloc",
-        "var_path": "retval->retval->arg->retval"
-    },
-    {
         "API": "nfp_bpf_relo_for_vnic",
         "SecOp": "kfree",
         "hasUsage": true,
@@ -702,39 +180,12 @@
         "var_path": "retval->retval->retval->retval"
     },
     {
-        "API": "get_link_target",
+        "API": "hda_hstream_dbg_get_stream_info_str",
         "SecOp": "kfree",
         "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->link_target->get_link_target",
-        "var_path": "retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "dup_token",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dup_token",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "platform_msi_domain_alloc_irqs",
-        "SecOp": "platform_msi_domain_free_irqs",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 6,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->alloc_msi_entry->platform_msi_alloc_descs_with_irq->platform_msi_alloc_descs->platform_msi_domain_alloc_irqs",
-        "var_path": "retval->retval->retval->arg->arg->arg->arg"
-    },
-    {
-        "API": "drm_get_override_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
+        "usageCount": 2,
         "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid",
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->hda_hstream_dbg_get_stream_info_str",
         "var_path": "retval->retval->retval->retval->retval"
     },
     {
@@ -747,192 +198,30 @@
         "var_path": "retval->retval->retval->arg->arg->arg"
     },
     {
-        "API": "dapm_cnew_widget",
+        "API": "mlx5e_dup_tun_info",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dapm_cnew_widget",
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->mlx5e_dup_tun_info",
         "var_path": "retval->retval->retval->retval"
     },
     {
-        "API": "get_defined_signals",
-        "SecOp": "kfree",
+        "API": "i2c_get_dma_safe_msg_buf",
+        "SecOp": "i2c_put_dma_safe_msg_buf",
         "hasUsage": true,
-        "usageCount": 2,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->get_defined_attribute->get_defined_signals",
-        "var_path": "retval->retval->retval->arg->retval->retval"
-    },
-    {
-        "API": "ipv6_icmp_sysctl_init",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
+        "usageCount": 4,
         "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->ipv6_icmp_sysctl_init",
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->i2c_get_dma_safe_msg_buf",
         "var_path": "retval->retval->retval->retval"
     },
     {
-        "API": "ksmbd_extract_sharename",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "kstrdup->ksmbd_extract_sharename",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "psb_intel_sdvo_get_analog_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->psb_intel_sdvo_get_analog_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "nfs_readdir_copy_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup_nul->nfs_readdir_copy_name",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "ovl_get_fh",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 10,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->vfs_getxattr_alloc->cap_inode_getsecurity->security_inode_getsecurity->xattr_getsecurity->vfs_getxattr->ovl_do_getxattr->ovl_get_fh",
-        "var_path": "retval->retval->retval->arg->retval->retval->retval->retval->arg->arg->retval"
-    },
-    {
-        "API": "intel_sdvo_get_analog_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->intel_sdvo_get_analog_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "kmemdup",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 321,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "safe_name",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "kstrdup->safe_name",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "drm_dp_mst_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_dp_mst_get_edid",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "nf_queue_entry_dup",
-        "SecOp": "nf_queue_entry_free",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->nf_queue_entry_dup",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "raw_alloc_io_data",
+        "API": "scsi_bios_ptable",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 4,
         "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->raw_alloc_io_data",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "target_ts_to_str",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 2,
-        "API_path": "kstrdup->target_append_str->target_ts_to_str",
-        "var_path": "retval->arg->retval"
-    },
-    {
-        "API": "property_entries_dup",
-        "SecOp": "property_entries_free",
-        "hasUsage": true,
-        "usageCount": 4,
-        "depth": 2,
-        "API_path": "kstrdup->property_entry_copy_data->property_entries_dup",
-        "var_path": "retval->arg->retval"
-    },
-    {
-        "API": "get_defined_functions",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 5,
-        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->get_defined_attribute->get_defined_functions",
-        "var_path": "retval->retval->retval->arg->retval->retval"
-    },
-    {
-        "API": "adv7511_get_edid",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 6,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->adv7511_get_edid",
-        "var_path": "retval->retval->retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "brcm_alt_fw_path",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 1,
-        "API_path": "kstrdup->brcm_alt_fw_path",
-        "var_path": "retval->retval"
-    },
-    {
-        "API": "cifs_get_tcp_session",
-        "SecOp": "cifs_put_tcp_session",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 1,
-        "API_path": "kstrdup->cifs_get_tcp_session",
-        "var_path": "retval->arg"
-    },
-    {
-        "API": "_copy_apqns_from_user",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->_copy_apqns_from_user",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "_copy_key_from_user",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->_copy_key_from_user",
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->scsi_bios_ptable",
         "var_path": "retval->retval->retval->retval"
     },
     {
@@ -945,76 +234,67 @@
         "var_path": "retval->retval->retval->arg->arg->retval->arg"
     },
     {
-        "API": "kstrdup_quotable_file",
+        "API": "xenbus_read",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 17,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->join->xenbus_read",
+        "var_path": "retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "brcm_alt_fw_path",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "kstrdup->brcm_alt_fw_path",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "usb_get_gadget_udc_name",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 1,
-        "API_path": "kstrdup->kstrdup_quotable_file",
+        "API_path": "kstrdup->usb_get_gadget_udc_name",
         "var_path": "retval->retval"
     },
     {
-        "API": "brcmf_cfg80211_get_ops",
+        "API": "memdup_to_str",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->brcmf_cfg80211_get_ops",
-        "var_path": "retval->retval->retval->retval"
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->memdup_to_str",
+        "var_path": "retval->retval->retval->retval->retval"
     },
     {
-        "API": "drm_get_edid_switcheroo",
+        "API": "dw_hdmi_get_edid",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 7,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->drm_get_edid_switcheroo",
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->dw_hdmi_get_edid",
         "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
     },
     {
-        "API": "copy_dev_ioctl",
-        "SecOp": "free_dev_ioctl",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->copy_dev_ioctl",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "meson_nand_op_get_dma_safe_output_buf",
-        "SecOp": "meson_nand_op_put_dma_safe_output_buf",
-        "hasUsage": true,
-        "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->meson_nand_op_get_dma_safe_output_buf",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "memdup_sockptr_nul",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
-        "depth": 2,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_sockptr_nul",
-        "var_path": "retval->retval->retval"
-    },
-    {
-        "API": "nla_memdup",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 3,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->nla_memdup",
-        "var_path": "retval->retval->retval->retval"
-    },
-    {
-        "API": "dup_iter",
+        "API": "follow_link",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
-        "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dup_iter",
-        "var_path": "retval->retval->retval->retval"
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->follow_link",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "alloc_clt",
+        "SecOp": "free_clt",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->device_get_devnode->devtmpfs_create_node->device_add->device_register->alloc_clt",
+        "var_path": "retval->retval->arg->arg->arg->retval"
     },
     {
         "API": "scrub_workers_get",
@@ -1035,30 +315,183 @@
         "var_path": "retval->retval->retval->arg->arg"
     },
     {
-        "API": "hda_hstream_dbg_get_stream_info_str",
-        "SecOp": "kfree",
+        "API": "i2c_get_dma_safe_msg_buf",
+        "SecOp": "i2c_put_dma_safe_msg_buf",
         "hasUsage": true,
-        "usageCount": 2,
-        "depth": 4,
-        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->hda_hstream_dbg_get_stream_info_str",
-        "var_path": "retval->retval->retval->retval->retval"
-    },
-    {
-        "API": "spidev_get_ioc_message",
-        "SecOp": "kfree",
-        "hasUsage": true,
-        "usageCount": 2,
+        "usageCount": 3,
         "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->spidev_get_ioc_message",
-        "var_path": "retval->retval->retval->retval"
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->i2c_get_dma_safe_msg_buf",
+        "var_path": "retval->retval->retval->arg"
     },
     {
-        "API": "mlx5e_dup_tun_info",
+        "API": "dapm_cnew_widget",
         "SecOp": "kfree",
         "hasUsage": true,
         "usageCount": 1,
         "depth": 3,
-        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->mlx5e_dup_tun_info",
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dapm_cnew_widget",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "meson_nand_op_get_dma_safe_output_buf",
+        "SecOp": "meson_nand_op_put_dma_safe_output_buf",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->meson_nand_op_get_dma_safe_output_buf",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "w1_alloc_dev",
+        "SecOp": "w1_free_dev",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->device_get_devnode->devtmpfs_create_node->device_add->device_register->w1_alloc_dev",
+        "var_path": "retval->retval->arg->arg->arg->retval"
+    },
+    {
+        "API": "intel_sdvo_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->intel_sdvo_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "kstrndup_noeol",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kstrndup->kstrndup_noeol",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "event_fmt",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->event_fmt",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "ovl_get_redirect_xattr",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 10,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->vfs_getxattr_alloc->cap_inode_getsecurity->security_inode_getsecurity->xattr_getsecurity->vfs_getxattr->ovl_do_getxattr->ovl_get_redirect_xattr",
+        "var_path": "retval->retval->retval->arg->retval->retval->arg->arg->arg->arg->retval"
+    },
+    {
+        "API": "rproc_alloc",
+        "SecOp": "rproc_free",
+        "hasUsage": true,
+        "usageCount": 17,
+        "depth": 3,
+        "API_path": "kstrdup->kstrdup_const->rproc_alloc_firmware->rproc_alloc",
+        "var_path": "retval->retval->arg->retval"
+    },
+    {
+        "API": "vfs_dup_fs_context",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->vfs_dup_fs_context",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "kmemdup",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 321,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "kstrdup_const",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "kstrdup->kstrdup_const",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "kmalloc_track_caller",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 1,
+        "API_path": "kstrdup->kmalloc_track_caller",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "tc_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->tc_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "x509_cert_parse",
+        "SecOp": "x509_free_certificate",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->x509_get_sig_params->x509_cert_parse",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "psb_intel_sdvo_get_analog_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->psb_intel_sdvo_get_analog_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "strndup_user",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 17,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->strndup_user",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "brcmf_cfg80211_get_ops",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->brcmf_cfg80211_get_ops",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "kstrdup_quotable_file",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "kstrdup->kstrdup_quotable_file",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "_copy_key_from_user",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->_copy_key_from_user",
         "var_path": "retval->retval->retval->retval"
     },
     {
@@ -1071,6 +504,213 @@
         "var_path": "retval->retval->retval->retval->retval"
     },
     {
+        "API": "dup_token",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dup_token",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "kvasprintf",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 5,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "nfs_get_client",
+        "SecOp": "nfs_put_client",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->xdr_netobj_dup->alloc_client->nfs_get_client",
+        "var_path": "retval->retval->retval->arg->retval->retval"
+    },
+    {
+        "API": "memdup_sockptr",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 8,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_sockptr",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "create_client",
+        "SecOp": "free_client",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->xdr_netobj_dup->alloc_client->create_client",
+        "var_path": "retval->retval->retval->arg->retval->retval"
+    },
+    {
+        "API": "alloc_trial_cpuset",
+        "SecOp": "free_cpuset",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->alloc_trial_cpuset",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "ipaq_micro_str",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "kstrdup->ipaq_micro_str",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "_copy_apqns_from_user",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->_copy_apqns_from_user",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "snd_soc_dapm_new_control",
+        "SecOp": "snd_soc_dapm_free_widget",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dapm_cnew_widget->snd_soc_dapm_new_control_unlocked->snd_soc_dapm_new_control",
+        "var_path": "retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "alloc_client",
+        "SecOp": "free_client",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->xdr_netobj_dup->alloc_client",
+        "var_path": "retval->retval->retval->arg->retval"
+    },
+    {
+        "API": "memdup_user_nul",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 67,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user_nul",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "dfs_cache_canonical_path",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "kstrdup->dfs_cache_canonical_path",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "ovl_get_redirect_xattr",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 10,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->vfs_getxattr_alloc->cap_inode_getsecurity->security_inode_getsecurity->xattr_getsecurity->vfs_getxattr->ovl_do_getxattr->ovl_get_redirect_xattr",
+        "var_path": "retval->retval->retval->arg->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "iio_buffers_alloc_sysfs_and_mask",
+        "SecOp": "iio_buffers_free_sysfs_and_mask",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kstrdup_const->iio_buffer_wrap_attr->__iio_buffer_alloc_sysfs_and_mask->iio_buffers_alloc_sysfs_and_mask",
+        "var_path": "retval->arg->arg->arg->arg"
+    },
+    {
+        "API": "nf_queue_entry_dup",
+        "SecOp": "nf_queue_entry_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->nf_queue_entry_dup",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "drm_get_edid_switcheroo",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->drm_get_edid_switcheroo",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "get_defined_signals",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->get_defined_attribute->get_defined_signals",
+        "var_path": "retval->retval->retval->arg->retval->retval"
+    },
+    {
+        "API": "intel_sdvo_get_analog_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->intel_sdvo_get_analog_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "ffs_prepare_buffer",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->ffs_prepare_buffer",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "drm_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 27,
+        "depth": 6,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "match_strdup",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 24,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup_nul->match_strdup",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "kmemdup_nul",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 23,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup_nul",
+        "var_path": "retval->retval->retval"
+    },
+    {
+        "API": "make_driver_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->make_driver_name",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
         "API": "fsl_mc_msi_domain_alloc_irqs",
         "SecOp": "fsl_mc_msi_domain_free_irqs",
         "hasUsage": true,
@@ -1080,6 +720,249 @@
         "var_path": "retval->retval->retval->arg->arg->arg"
     },
     {
+        "API": "drm_get_override_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "platform_msi_domain_alloc_irqs",
+        "SecOp": "platform_msi_domain_free_irqs",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 6,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->alloc_msi_entry->platform_msi_alloc_descs_with_irq->platform_msi_alloc_descs->platform_msi_domain_alloc_irqs",
+        "var_path": "retval->retval->retval->arg->arg->arg->arg"
+    },
+    {
+        "API": "nfs4_set_ds_client",
+        "SecOp": "nfs_put_client",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 6,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->xdr_netobj_dup->alloc_client->nfs_get_client->nfs4_set_ds_client",
+        "var_path": "retval->retval->retval->arg->retval->retval->retval"
+    },
+    {
+        "API": "fsl_mc_msi_alloc_descs",
+        "SecOp": "fsl_mc_msi_free_descs",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->alloc_msi_entry->fsl_mc_msi_alloc_descs",
+        "var_path": "retval->retval->retval->arg->arg"
+    },
+    {
+        "API": "ipv6_route_sysctl_init",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->ipv6_route_sysctl_init",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "drm_edid_duplicate",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "qede_alloc_fp_array",
+        "SecOp": "qede_free_fp_array",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->qede_alloc_fp_array",
+        "var_path": "retval->retval->retval->retval->arg"
+    },
+    {
+        "API": "nla_memdup",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->nla_memdup",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "nfs_readdir_copy_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup_nul->nfs_readdir_copy_name",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "phy_attached_info_irq",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->phy_attached_info_irq",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "adv7511_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 6,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->adv7511_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "mxs_get_revision",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->mxs_get_revision",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "ksmbd_extract_sharename",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "kstrdup->ksmbd_extract_sharename",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "alloc_trace_uprobe",
+        "SecOp": "free_trace_uprobe",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "kstrdup->trace_probe_init->alloc_trace_uprobe",
+        "var_path": "retval->arg->retval"
+    },
+    {
+        "API": "raw_alloc_io_data",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->raw_alloc_io_data",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "copyin_string",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user_nul->copyin_string",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "iwl_mvm_update_mcc",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->iwl_mvm_update_mcc",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "ep93xx_get_machine_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->ep93xx_get_machine_name",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "spidev_get_ioc_message",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->spidev_get_ioc_message",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "extract_sharename",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "kstrdup->extract_sharename",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "rtw89_hex2bin_user",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->memdup_user->rtw89_hex2bin_user",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "cdns_mhdp_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 6,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->cdns_mhdp_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "clkctrl_get_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->clkctrl_get_name",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "get_link_target",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->link_target->get_link_target",
+        "var_path": "retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "ovl_get_fh",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 10,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->vfs_getxattr_alloc->cap_inode_getsecurity->security_inode_getsecurity->xattr_getsecurity->vfs_getxattr->ovl_do_getxattr->ovl_get_fh",
+        "var_path": "retval->retval->retval->arg->retval->retval->arg->arg->arg->arg->retval"
+    },
+    {
+        "API": "ocxl_afu_irq_alloc",
+        "SecOp": "ocxl_afu_irq_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->setup_afu_irq->ocxl_afu_irq_alloc",
+        "var_path": "retval->retval->retval->arg->arg->arg"
+    },
+    {
+        "API": "alloc_trace_kprobe",
+        "SecOp": "free_trace_kprobe",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 2,
+        "API_path": "kstrdup->trace_probe_init->alloc_trace_kprobe",
+        "var_path": "retval->arg->retval"
+    },
+    {
         "API": "ovl_get_redirect",
         "SecOp": "kfree",
         "hasUsage": true,
@@ -1087,5 +970,149 @@
         "depth": 1,
         "API_path": "kstrdup->ovl_get_redirect",
         "var_path": "retval->retval"
+    },
+    {
+        "API": "ipv6_icmp_sysctl_init",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->ipv6_icmp_sysctl_init",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "snd_soc_dapm_new_control_unlocked",
+        "SecOp": "snd_soc_dapm_free_widget",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->dapm_cnew_widget->snd_soc_dapm_new_control_unlocked",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "target_ts_to_str",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 2,
+        "API_path": "kstrdup->target_append_str->target_ts_to_str",
+        "var_path": "retval->arg->retval"
+    },
+    {
+        "API": "__iio_buffer_alloc_sysfs_and_mask",
+        "SecOp": "__iio_buffer_free_sysfs_and_mask",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kstrdup_const->iio_buffer_wrap_attr->__iio_buffer_alloc_sysfs_and_mask",
+        "var_path": "retval->arg->arg->arg"
+    },
+    {
+        "API": "get_defined_functions",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->__do_krealloc->krealloc->get_defined_attribute->get_defined_functions",
+        "var_path": "retval->retval->retval->arg->retval->retval"
+    },
+    {
+        "API": "make_slot_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 1,
+        "API_path": "kstrdup->make_slot_name",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "drm_dp_mst_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_dp_mst_get_edid",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "kasprintf",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 221,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf",
+        "var_path": "retval->retval->retval->retval"
+    },
+    {
+        "API": "property_entries_dup",
+        "SecOp": "property_entries_free",
+        "hasUsage": true,
+        "usageCount": 4,
+        "depth": 2,
+        "API_path": "kstrdup->property_entry_copy_data->property_entries_dup",
+        "var_path": "retval->arg->retval"
+    },
+    {
+        "API": "clkctrl_get_clock_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 4,
+        "API_path": "kstrdup->kmalloc_track_caller->kvasprintf->kasprintf->clkctrl_get_clock_name",
+        "var_path": "retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "drm_do_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 5,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "intel_crt_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 2,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->intel_crt_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "wl1271_rx_filter_alloc_field",
+        "SecOp": "wl1271_rx_filter_free",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 3,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->wl1271_rx_filter_alloc_field",
+        "var_path": "retval->retval->retval->arg"
+    },
+    {
+        "API": "scsi_dh_attached_handler_name",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 1,
+        "depth": 1,
+        "API_path": "kstrdup->scsi_dh_attached_handler_name",
+        "var_path": "retval->retval"
+    },
+    {
+        "API": "psb_intel_sdvo_get_edid",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 3,
+        "depth": 7,
+        "API_path": "kstrdup->kmalloc_track_caller->kmemdup->drm_edid_duplicate->drm_get_override_edid->drm_do_get_edid->drm_get_edid->psb_intel_sdvo_get_edid",
+        "var_path": "retval->retval->retval->retval->retval->retval->retval->retval"
+    },
+    {
+        "API": "kstrndup",
+        "SecOp": "kfree",
+        "hasUsage": true,
+        "usageCount": 47,
+        "depth": 2,
+        "API_path": "kstrdup->kmalloc_track_caller->kstrndup",
+        "var_path": "retval->retval->retval"
     }
 ]
