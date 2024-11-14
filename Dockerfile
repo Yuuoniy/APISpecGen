@@ -52,8 +52,8 @@ RUN curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && python3.10 get-pi
 RUN mkdir /root/tools
 WORKDIR /root/tools
 
-ENV http_proxy=http://XX.XX.XX.XX:XXX
-ENV https_proxy=http://XX.XX.XX.XX:XXX
+# ENV http_proxy=http://XX.XX.XX.XX:XXX
+# ENV https_proxy=http://XX.XX.XX.XX:XXX
 
 RUN apt-get install -y unzip
 RUN wget https://github.com/joernio/joern/releases/latest/download/joern-install.sh
