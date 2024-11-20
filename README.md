@@ -8,8 +8,8 @@ APISpecGen consists of two main modules:
 - **Specification Generation**: Generates new specifications based on the initial seed specifications.
 - **Bug Detection**: Uses the generated specifications to detect violations within the codebase, identifying potential bugs.
 
-APISpecGen focus on API Post-handing specifcations and 
-Each specification is represented as a three-part tuple: <target API, post-operation, critical variable>, meaning that after invoking the target API, the post-operation should be applied to the critical variable.
+APISpecGen focuses on API Post-handing specifcations, where each specification is
+is represented as a three-part tuple: `<target API, post-operation, critical variable>`, meaning that after invoking the target API, the post-operation should be applied to the critical variable.
 
 For more details, you may refer to the paper "Uncovering iceberg from the tip: Generating API Specifications for Bug Detection via Specification Propagation Analysis" (NDSS 2025).
 
