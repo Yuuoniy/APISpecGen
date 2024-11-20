@@ -1,9 +1,6 @@
 ## Intro
-
-
 We introduce **API Specification Propagation**, a concept where API specifications propagate through hierarchical API call chains. With this idea, we can use given seed specifications to perform propagation analysis and identify related predecessors or successors and generate specifications for them. 
-APISpecGen focus on API Post-handing specifcations and 
-Each specification is represented as a three-part tuple: <target API, post-operation, critical variable>, meaning that after invoking the target API, the post-operation should be applied to the critical variable.
+
 
 
 To implement this, we design **APISpecGen**, a framework that generates new API specifications from seed specifications.
@@ -11,16 +8,20 @@ APISpecGen consists of two main modules:
 - **Specification Generation**: Generates new specifications based on the initial seed specifications.
 - **Bug Detection**: Uses the generated specifications to detect violations within the codebase, identifying potential bugs.
 
+APISpecGen focus on API Post-handing specifcations and 
+Each specification is represented as a three-part tuple: <target API, post-operation, critical variable>, meaning that after invoking the target API, the post-operation should be applied to the critical variable.
 
 For more details, you may refer to the paper "Uncovering iceberg from the tip: Generating API Specifications for Bug Detection via Specification Propagation Analysis" (NDSS 2025).
 
 ## Example workflow
 The following figure illustrates a working example of APISpecGen. In this example, APISpecGen starts with the seed specification `<get_device, put_device, arg1>` and generates a new specification `<nfc_get_device, nfc_put_device, retval>`. This new specification is then applied to detect violations in the function `nfc_genl_vendor_cmd`.
 
-<img src=./assets/APISpecGen-working-example.png#pic_center width=60% />
+<p align="center">
+<img src=./assets/APISpecGen-working-example.png#pic_center width=75% />
+</p>
 
 Specifically, the specification generation module generates new specifications, include details such as propagation paths. Here’s an example of a generated specification:
-```json
+```shell
 {
   "API": "nfc_get_device", // the inferred API
   "SecOp": "nfc_put_device",// the inferred post-operation for the API     
@@ -82,12 +83,12 @@ We provide step-by-step instruction for reproducing APISpecGen.
 For more information about the evaluation process, please refer to [Doc_For_Aritifact_Evaluation](./Doc_For_Aritifact_Evaluation.md)
 
 The key experiments are as follows:
-| Experiemnt                                    | Command                                  | Description                                                                 | Results                                                                                                                                                                   |
-| --------------------------------------------- | ---------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Minimal Running Example                       | -                                        | minimal running example for quick test.                                     | This will reproduced the working example displayed in the paper.                                                                                                          | - |
-| ├─Example Running for Specifcation Generation | `./script/0.quick_spec_generate.sh`      | Perform specfication progation analysis for a seed with iteration set to 2. | The generated specification saved to `SpecGeneration/Data/GeneratedSpecs`                                                                                                 |
-| └─Example Running for Bug Detection           | `./script/0.1.quick_bug_detection.sh`    | Perform quick test for bug detection using one generated specification      | The script prints out the detected potential bugs.                                                                                                                        |
-| Specifcation Generation                       | `./script/1.specification_generation.sh` | Generate specifcations use the given six seed specifcations.                | The generated specification saved to  `SpecGeneration/Data/GeneratedSpec`. For reference, we provide the generated specifications in `SpecGeneration/Data/ReferenceData`. |
-| Bug Detection                                 | `./script/2.bug_detection.sh`            | Use generated specifcations to detect new bugs in the Linux kernel.         | the bug reports will be continuously logged into the file `BugDetection/data/bug_report.csv`. We provide reference data in `BugDetection/ReferenceData/bug_report.csv`    |
-| Utilizebility of API Aritifacts               | `./script/3.API_aritifact_analysis.sh`   | Use the generated specifications to evaluate the usability of API artifacts | This scripts print out the analysis data, which reveals that API artifacts have significant limitations in specification extraction.                                      |
+| Experiemnt                               | Command                                | Description                                                                 | Results                                                                                                                              |
+| ---------------------------------------- | -------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| Minimal Running Example                  | -                                      | minimal running example for quick test.                                     | This will reproduced the working example displayed in the paper.                                                                     | - |
+| ├─Quick Test for Specifcation Generation | ./script/0.quick_spec_generate.sh      | Perform specfication progation analysis for a seed with iteration set to 2. | The generated specification saved to `SpecGeneration/Data/GeneratedSpecs`                                                            |
+| └─Quick Test for Bug Detection           | ./script/0.1.quick_bug_detection.sh    | Perform quick test for bug detection using one generated specification      | The script prints out the detected potential bugs.                                                                                   |
+| Specifcation Generation                  | ./script/1.specification_generation.sh | Generate specifcations use the given six seed specifcations.                | The generated specification saved to  `SpecGeneration/Data/GeneratedSpec`.                                                           |
+| Bug Detection                            | ./script/2.bug_detection.sh            | Use generated specifcations to detect new bugs in the Linux kernel.         | the bug reports will be continuously logged into the file `BugDetection/data/bug_report.csv`.                                        |
+| Utilizebility of API Aritifacts          | ./script/3.API_aritifact_analysis.sh   | Use the generated specifications to evaluate the usability of API artifacts | This scripts print out the analysis data, which reveals that API artifacts have significant limitations in specification extraction. |
 
