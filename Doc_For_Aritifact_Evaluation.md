@@ -115,7 +115,7 @@ Below, we provide the execution time in our evaluations for reference. The data 
 
 #### 2.0 Minimal Running For Bug Detection
 - **[Intro]** Perform quick test for bug detection using one generated specification [obtained from specifcation generation for working example](#10-minimal-running). Use the specifcation generated from step (nfc_get_device, nfc_put_device,retval) to detect bugs. 
-- **[Run]** `./script/0.1.quick_bug_detection_for_test.sh` 
+- **[Run]** `./script/0.1.quick_bug_detection.sh` 
 - **[Results]** 
 The script prints out the detected potential bugs. This includes the buggy function `nfc_genl_vendor_cmd` displayed in the paper.
 The output example: 
