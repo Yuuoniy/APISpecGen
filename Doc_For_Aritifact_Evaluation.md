@@ -191,7 +191,7 @@ We compare APISpecGen with the following tools: [SinkFiner](https://github.com/S
 
 Due to the limitations of previous works, such as incomplete data or partially open-source implementations, it is not always possible to run their tools directly and obtain fully comparable results. 
 For SinkFinder and APHP, we obtain their extracted specifications using the artifacts they provided.
-For Advance, since it is not fully open-source and lacks artifacts for the Linux kernel, referred to  API documentation to determine whether it could cover specifications related to bugs. The results were recorded accordingly.
+For Advance, since it is not fully open-source and lacks artifacts for the Linux kernel, we referred to  API documentation to determine whether it could cover specifications related to bugs. The results were recorded accordingly.
 For IPPO, we ran IPPO directly for bug detection and checked whether it could identify the bugs detected by APISpecGen.
 
 All relevant data for this comparison is available in the directory:
