@@ -8,8 +8,7 @@ APISpecGen consists of two main modules:
 - **Specification Generation**: Generates new specifications based on the initial seed specifications.
 - **Bug Detection**: Uses the generated specifications to detect violations within the codebase, identifying potential bugs.
 
-APISpecGen focuses on API Post-handing specifcations, where each specification is
-is represented as a three-part tuple: `<target API, post-operation, critical variable>`, meaning that after invoking the target API, the post-operation should be applied to the critical variable.
+APISpecGen focuses on API Post-handing specifcations, where each specification is represented as a three-part tuple: `<target API, post-operation, critical variable>`, meaning that after invoking the target API, the post-operation should be applied to the critical variable.
 
 For more details, you may refer to the paper "Uncovering iceberg from the tip: Generating API Specifications for Bug Detection via Specification Propagation Analysis" (NDSS 2025).
 
@@ -91,4 +90,29 @@ The key experiments are as follows:
 | Specifcation Generation                  | ./script/1.specification_generation.sh | Generate specifcations use the given six seed specifcations.                | The generated specification saved to  `SpecGeneration/Data/GeneratedSpec`.                                                           |
 | Bug Detection                            | ./script/2.bug_detection.sh            | Use generated specifcations to detect new bugs in the Linux kernel.         | the bug reports will be continuously logged into the file `BugDetection/data/bug_report.csv`.                                        |
 | Utilizebility of API Aritifacts          | ./script/3.API_aritifact_analysis.sh   | Use the generated specifications to evaluate the usability of API artifacts | This scripts print out the analysis data, which reveals that API artifacts have significant limitations in specification extraction. |
+
+
+## Extension
+You can extend APISpecGen to generate specifications for new seed APIs or new projects. 
+
+For new seed APIs, you can either use tools like APHP to automatically extract seed specifications or manually create them in the tuple format `<target API, post-operation, critical variable>`.
+
+To test on a new project, update the config.cfg file by adding the source code directories in the [URL] section. Use the following format:
+```shell
+[URL]
+repo_name = {directory_of_repo_source_code}
+#Example
+openssl = ${Common:SOURCEDIR}/openssl
+FFmpeg = ${Common:SOURCEDIR}/FFmpeg
+```
+
+Use the following command to generate specifications:
+```shell
+python SpecGeneration/spec_generate.py --seedAPI {TargetAPI} --seedSecOp {post-operation} --critical_var {critical-variable} --max_depth {max_iterations_for_analysis} --repo_name {repo_name}
+#Examples:
+python SpecGeneration/spec_generate.py --seedAPI av_malloc --seedSecOp av_free --critical_var retval --max_depth 5 --repo_name FFmpeg
+python SpecGeneration/spec_generate.py --seedAPI BIO_new --seedSecOp BIO_free --critical_var retval --max_depth 5 --repo_name openssl
+```
+Our generated specifications are saved in the directory:
+`SpecGeneration/Data/ReferenceData/OtherPrograms` for reference.
 
