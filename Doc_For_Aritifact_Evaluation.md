@@ -9,7 +9,7 @@
   - [2. Bug Detection (Section VII.B).](#2-bug-detection-section-viib)
     - [2.0 Minimal Running For Bug Detection](#20-minimal-running-for-bug-detection)
     - [2.1 NormalTest For Bug Detection](#21-normaltest-for-bug-detection)
-  - [3. Utilizebility of API Aritifacts (Section VII.D).](#3-utilizebility-of-api-aritifacts-section-viid)
+  - [3. Utilizability of API Aritifacts (Section VII.D).](#3-utilizability-of-api-aritifacts-section-viid)
   - [4. Compared with related work. (Section VII C.)](#4-compared-with-related-work-section-vii-c)
 
 
@@ -156,7 +156,7 @@ real    103m48.172s
 user    176m56.169s
 sys     6m41.813s
 ```
-### 3. Utilizebility of API Aritifacts (Section VII.D).
+### 3. Utilizability of API Aritifacts (Section VII.D).
 - **[Intro]** Use the generated specifications to evaluate the usability of API artifacts (including API documentation, API names, and API usage) for specification extraction. We use paired specifications for evaluation because these artifacts are commonly used to extract such specifications.
 - **[Run]** `./script/3.API_aritifact_analysis.sh`
 - **[Note]** We provide the previously generated paired specifications (`SpecGeneration/Data/ReferenceData/All_generated_paired_specs.json`) for analysis. Alternatively, you can specify the `spec_file` in `APIAritifactEval/APIAritifactEval.py`. The results should be similar.
@@ -170,12 +170,29 @@ An example output is shown below:
 ```
 
 ### 4. Compared with related work. (Section VII C.)
-In the paper, we compare APISpecGen with SinkFiner, APHP, Advance, and IPPO.
 
-In the artifacts, we provide the specifications collected from SinkFiner and APHP, located in `ComparedWithRelatedWork/RelatedWorkData`, which are used to conclude the comparative results.
+- **[Intro]** summarizes the comparative results of APISpecGen against existing tools for API specification extraction and bug detection.
+- **[Run]** `./script/4.compared_with_relatedWork.sh`
+- **[Note]** We use the reference data for specifications related to bugs and the provided bug lists for statistical analysis. The results here differ slightly from those presented in the paper, as the reference bugs list is not complete. 
+- **[Results]** The results shows the limitations of current methods, which miss many specifications and fail to detect many bugs.
 
-For Advance, we reference the API doc for specfication extraction to obtain the results.
+An example output is shown below:
+```shell
+Compared with Related Work
+| Tool       | Spec Coverage | Bug Coverage |
+| :--------- | :------------ | :----------- |
+| APHP       | 17%           | 33%          |
+| Advance    | 12%           | 6%           |
+| SinkFinder | 11%           | 10%          |
+| IPPO       | -             | 0%           |
+```
+Existing works on specification extraction rely heavily on API artifacts, and evaluations of the utilizability of these artifacts reveal significant limitations in current methods. In the comparison, we focus on specifications related to bugs and whether the bugs detected by APISpecGen are covered by previous works.
+We compare APISpecGen with the following tools: [SinkFiner](https://github.com/SinkFinder/), [APHP](https://github.com/Yuuoniy/APHP), [Advance](https://github.com/lvtao-sec/Advance/tree/master), and [IPPO](https://github.com/dinghaoliu/IPPO/tree/main).
 
-For IPPO, we directly run it to conclude the results.
+Due to the limitations of previous works, such as incomplete data or partially open-source implementations, it is not always possible to run their tools directly and obtain fully comparable results. 
+For SinkFinder and APHP, we obtain their extracted specifications using the artifacts they provided.
+For Advance, since it is not fully open-source and lacks artifacts for the Linux kernel, referred to  API documentation to determine whether it could cover specifications related to bugs. The results were recorded accordingly.
+For IPPO, we ran IPPO directly for bug detection and checked whether it could identify the bugs detected by APISpecGen.
 
-
+All relevant data for this comparison is available in the directory:
+`ComparedWithRelatedWork/RelatedWorkData`.

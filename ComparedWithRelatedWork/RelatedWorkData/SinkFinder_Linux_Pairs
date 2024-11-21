@@ -1,4 +1,4 @@
-target_api,sec_op
+main_api,sec_op
 alloc_smp_req,kfree
 alloc_smp_resp,kfree
 video_device_alloc,video_device_release

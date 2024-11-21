@@ -1,4 +1,4 @@
-target_api,sec_op
+main_api,sec_op
 kzalloc,kfree
 pm_runtime_get_sync,pm_runtime_put_noidle
 kmalloc,kfree

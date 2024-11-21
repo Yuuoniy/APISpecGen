@@ -1,0 +1,13 @@
+main_api,sec_op
+device_find_child_by_name,put_device
+rpi_firmware_get,rpi_firmware_put
+dfl_fpga_port_ops_get,dfl_fpga_port_ops_put
+rdma_user_mmap_entry_get_pgoff,rdma_user_mmap_entry_put
+usb_get_phy,usb_put_phy
+cpufreq_cpu_get,cpufreq_cpu_put
+acpi_dev_get_first_match_dev,acpi_dev_put
+devfreq_recommended_opp,dev_pm_opp_put
+of_mdio_find_device,put_device
+power_supply_get_by_name,power_supply_put
+scsi_device_lookup_by_target,scsi_device_put
+scsi_host_lookup,scsi_host_put
