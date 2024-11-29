@@ -41,7 +41,7 @@ class BugReportRanker:
         # calcuate score for each bug report
         self.repo_report_cluster_by_api.reset_index(inplace=True)
         
-        repo_report['score'] = repo_report.apply(self.get_score, axis=1)
+        repo_report.loc[:, 'score'] = repo_report.apply(self.get_score, axis=1)
         repo_report = repo_report.sort_values('score',ascending=False)
         
         return repo_report
