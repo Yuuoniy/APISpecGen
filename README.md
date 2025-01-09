@@ -1,4 +1,7 @@
+
 ## Intro
+<img src="./assets/badge-AFR.jpg" alt="APISpecGen Icon" width="50">
+
 We introduce **API Specification Propagation**, a concept where API specifications propagate through hierarchical API call chains. With this idea, we can use given seed specifications to perform propagation analysis and identify related predecessors or successors and generate specifications for them. 
 
 
